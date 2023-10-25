@@ -14,9 +14,9 @@ app_ui <- function(request) {
       navbarPage(
         theme = shinythemes::shinytheme("flatly"),
         collapsible = TRUE,
-        HTML('<a style="text-decoration:none;cursor:default;color:#FFFFFF;" class="active" href="#">West Coast Fisheries Participation Survey</a>'),
+        HTML('<a style="text-decoration:none;cursor:default;color:#FFFFFF;" class="active" href="#">Fisheries Participation Survey</a>'),
         id = "nav",
-        windowTitle = "West Coast Participation Survey",
+        windowTitle = "Participation Survey",
 
         # The tab panels go here
         tabPanel("2017 Map", mod_map_2017_ui("name_of_module1_1")),

@@ -13,7 +13,7 @@ div.outer {
 }
 
 /* Customize fonts */
-body, label, input, button, select { 
+body, label, input, button, select {
   font-family: 'Helvetica Neue', Helvetica;
   font-weight: 200;
 }
@@ -50,4 +50,16 @@ h1, h2, h3, h4 { font-weight: 400; }
   /* Fade in while hovering */
   opacity: 0.95;
   transition-delay: 0;
+}
+
+.responsive-img {
+  width: auto;
+  max-width: 100%;  /* The image will scale down if the browser gets narrower */
+  height: auto;
+  max-height: 500px;  /* Sets the maximum height */
+}
+
+.navbar-brand {
+  white-space: normal;
+  text-align: center;
 }

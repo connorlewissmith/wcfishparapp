@@ -13,15 +13,15 @@ mod_survey_docs_ui <- function(id) {
 
   tabsetPanel(
     id = ns("tabs"),
-    tabPanel("2017 Survey",
+    tabPanel("2023 Survey",
       value = "A",
       column(
         10,
         tabsetPanel(
-          tabPanel("Page 1", id = "dummy", img(height = 800, width = 600, src = "www/2017p1.png")),
-          tabPanel("Page 2", id = "dummy", img(height = 800, width = 600, src = "www/2017p2.png")),
-          tabPanel("Page 3", id = "dummy", img(height = 800, width = 600, src = "www/2017p3.png")),
-          tabPanel("Page 4", id = "dummy", img(height = 800, width = 600, src = "www/2017p4.png"))
+          tabPanel("Page 1", id = "dummy", img(height = 800, width = 600, src = "www/2023p1.png")),
+          tabPanel("Page 2", id = "dummy", img(height = 800, width = 600, src = "www/2023p2.png")),
+          tabPanel("Page 3", id = "dummy", img(height = 800, width = 600, src = "www/2023p3.png")),
+          tabPanel("Page 4", id = "dummy", img(height = 800, width = 600, src = "www/2023p4.png"))
         )
       )
     ),
@@ -38,7 +38,22 @@ mod_survey_docs_ui <- function(id) {
           )
         )
       )
+    ),
+    tabPanel("2017 Survey",
+             value = "B",
+             fluidRow(
+               column(
+                 10,
+                 tabsetPanel(
+                   tabPanel("Page 1", id = "dummy", img(height = 900, width = 700, src = "www/2017p1.png")),
+                   tabPanel("Page 2", id = "dummy", img(height = 900, width = 700, src = "www/2017p2.png")),
+                   tabPanel("Page 3", id = "dummy", img(height = 900, width = 700, src = "www/2017p3.png")),
+                   tabPanel("Page 4", id = "dummy", img(height = 900, width = 525, src = "www/2017p4.png"))
+                 )
+               )
+             )
     )
+
   )
 }
 
