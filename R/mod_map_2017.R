@@ -21,7 +21,7 @@ mod_map_2017_ui <- function(id) {
         top = 75, left = 55, width = 350, fixed = TRUE,
         draggable = TRUE, height = "auto",
         img(
-          height = 90,
+          height = 80,
           width = 325,
           src = "www/noaalogo.png"
         ),
@@ -60,27 +60,27 @@ mod_map_2017_server <- function(id) {
         selecter = c("Q1:", "Q2:", "Q3:", "Q4:", "Q6:", "Q7:", "Q8:", "Q9:", "Q11", "Q13", "Q14", "Q15", "Q16", "Q17", "Q18", "Q19", "Q20", "Q21", "Q22", "Q23", "Q24", "Q25", "Q26", "Q28", "Q29", "Q31", "Q32", "Q33", "Q34"),
         height = c(75, 200, 250, 100, 75, 75, 200, 75, 350, 350, 100, 250, 250, 300, 300, 150, 250, 250, 100, 150, 100, 100, 300, 100, 100, 400, 300, 75, 75),
         width = c(400, 500, 500, 500, 500, 500, 500, 500, 600, 600, 500, 400, 400, 500, 500, 400, 400, 400, 400, 400, 400, 400, 500, 500, 500, 400, 500, 400, 400),
-        src = c("www/17q1.png", "www/17q2.png", "www/17q3.png", "www/17q4.png", "www/17q6.png", "www/17q7.png", "www/17q8.png", "www/17q9.png", "www/17q11.png", "www/17q13.png", "www/17q14.png", "www/17q15.png", "www/17q16.png", "www/17q17.png", "www/17q18.png", "www/17q19.png", "www/17q20.png", "www/17q21.png", "www/17q22.png", "www/17q23.png", "www/17q24.png", "www/17q25.png", "www/17q26.png", "www/17q28.png", "www/17q29.png", "www/17q31.png", "www/17q32.png", "www/17q33.png", "www/17q34.png")
+        src = c("www/20q1.png", "www/20q2.png", "www/20q3.png", "www/17q4.png", "www/17q6.png", "www/17q7.png", "www/17q8.png", "www/20q9.png", "www/20q11.png", "www/17q13.png", "www/17q14.png", "www/17q15.png", "www/17q16.png", "www/17q17.png", "www/17q18.png", "www/17q19.png", "www/17q20.png", "www/17q21.png", "www/17q22.png", "www/17q23.png", "www/17q24.png", "www/17q25.png", "www/17q26.png", "www/17q28.png", "www/17q29.png", "www/17q31.png", "www/17q32.png", "www/17q33.png", "www/17q34.png")
       )
 
       # Label map for 2017
       label_map_17 <- list(
+        "Q1:" = list(bins = c(45, 50, 55, 60, 65, 70), labels = c("45-50", "50-55", "55-60", "60-65", "65-70")),
         "Q2:" = list(bins = c(1, 2, 3, 4, 5, 6), labels = Q2label),
-        "Q4:" = list(bins = c(1, 2, 3, 4, 5), labels = Q4label),
         "Q3:" = list(bins = c(0, 1, 2, 3, 4, 5, 6), labels = Q3label),
+        "Q4:" = list(bins = c(1, 2, 3, 4, 5), labels = Q4label),
+        "Q7:" = list(bins = c(0, 1, 2, 3, 4, 5, 6), labels = c("0", "1", "2", "3", "4", "5", "6")),
         "Q8:" = list(bins = c(1, 2, 3, 4, 5, 6), labels = Q8label),
+        "Q9:" = list(bins = c(0, 1, 2, 3, 4, 5), labels = c("0", "1", "2", "3", "4", "5")),
         "Q11" = list(bins = c(1, 2, 3, 4, 5, 6), labels = Q11label),
         "Q12" = list(bins = c(1, 2, 3, 4, 5, 6), labels = Q12label),
         "Q20" = list(bins = c(1, 2, 3, 4, 5, 6, 7), labels = Q20label),
         "Q26" = list(bins = c(1, 2, 3, 4), labels = Q26label),
         "Q31" = list(bins = c(1, 2, 3, 4, 5), labels = Q31label),
         "Q32" = list(bins = c(1, 2, 3, 4, 5, 6, 7, 8), labels = Q32label),
-        "Q1:" = list(bins = c(45, 50, 55, 60, 65, 70, 75), labels = c("45-50", "50-55", "55-60", "60-65", "65-70", "70-75")),
         "Q6:" = list(bins = c(0, 1, 2, 3, 4, 5), labels = c("0", "1", "2", "3", "4", "5")),
         "Q33" = list(bins = c(0, 1, 2, 3, 4, 5), labels = c("0", "1", "2", "3", "4", "5")),
         "Q22" = list(bins = c(0, 1, 2, 3, 4, 5), labels = c("0", "1", "2", "3", "4", "5")),
-        "Q9:" = list(bins = c(0, 1, 2, 3, 4, 5), labels = c("0", "1", "2", "3", "4", "5")),
-        "Q7:" = list(bins = c(0, 1, 2, 3, 4, 5, 6), labels = c("0", "1", "2", "3", "4", "5", "6")),
         "Q28" = list(bins = c(0, 20, 40, 60, 80, 100), labels = c("0-20%", "20-40%", "40-60%", "60-80%", "80-100%")),
         "Q29" = list(bins = c(0, 20, 40, 60, 80, 100), labels = c("0-20%", "20-40%", "40-60%", "60-80%", "80-100%")),
         "Q25" = list(bins = c(0, 50, 100, 150, 200, 250, 300, 350), labels = c("0-50lbs", "50-100lbs", "100-150lbs", "150-200lbs", "200-250lbs", "250-300lbs", "300-350lbs")),
@@ -104,12 +104,38 @@ mod_map_2017_server <- function(id) {
         colorNumeric("viridis", data_filter(), domain = NULL)
       })
 
-      county_imap <- leaflet() %>%
+      # Have to add Q1 as default to work around bug
+      county_imap2017 <- leaflet() %>%
         addProviderTiles(providers$CartoDB.Positron) %>% ### base group
-        setView(lng = -130.252667, lat = 40.7850, zoom = 5)
+        setView(lng = -130.252667, lat = 40.7850, zoom = 5) %>%
+        addPolygons(
+          data = county_17_sf,
+          stroke = F,
+          smoothFactor = .2,
+          fillOpacity = .7,
+          label = ~NAME,
+          color = ~ palrepcount_17(`Respondent Count`),
+          highlight = highlightOptions(
+            weight = 2,
+            color = "red",
+            fillOpacity = 0.7,
+            bringToFront = F
+          ),
+          dashArray = "3",
+          layerId = county_17_sf$NAME,
+          group = "RC"
+        ) %>%
+        leaflet::addLegend(
+          data = county_17_sf, ## overlay group 2 legend
+          pal = palrepcount_17, values = ~`Respondent Count`,
+          opacity = .7,
+          title = "Count",
+          group = "RC", position = "bottomright",
+          className = "info legend aggregate risk"
+        )
 
       output$map2017 <- renderLeaflet({
-        county_imap %>%
+        county_imap2017 %>%
           clearPopups()
       })
 
@@ -189,10 +215,10 @@ mod_map_2017_server <- function(id) {
             config <- subset(image_config, selecter == selecter3)
             # Special conditions for Q12_break and Q12_break2
             if (selecter3 %in% Q12_break) {
-              config <- data.frame(height = 350, width = 600, src = "www/17q121.png")
+              config <- data.frame(height = 350, width = 600, src = "www/20q121.png")
             }
             if (selecter3 %in% Q12_break2) {
-              config <- data.frame(height = 350, width = 600, src = "www/17q122.png")
+              config <- data.frame(height = 350, width = 600, src = "www/20q122.png")
             }
             # If the config exists, create the image tag
             if (nrow(config) == 1) {

@@ -21,7 +21,7 @@ mod_map_2020_ui <- function(id) {
         top = 75, left = 55, width = 350, fixed = TRUE,
         draggable = TRUE, height = "auto",
         img(
-          height = 90,
+          height = 80,
           width = 325,
           src = "www/noaalogo.png"
         ),
@@ -74,8 +74,8 @@ mod_map_2020_server <- function(id) {
           400, 400, 400
         ),
         src = c(
-          "www/20q1.png", "www/20q2.png", "www/20q3.png", "www/20q4.png", "www/20q6.png",
-          "www/20q7.png", "www/20q8.png", "www/20q9.png", "www/20q11.png", "www/20q13.png",
+          "www/20q1.png", "www/20q2.png", "www/20q3.png", "www/17q4.png", "www/17q6.png",
+          "www/17q7.png", "www/17q8.png", "www/20q9.png", "www/20q11.png", "www/20q13.png",
           "www/20q14.png", "www/20q15.png", "www/20q16.png", "www/20q17.png", "www/20q18.png",
           "www/20q19.png", "www/20q20.png", "www/20q21.png", "www/20q22.png", "www/20q23.png",
           "www/20q24.png", "www/20q25.png", "www/20q26.png", "www/20q28.png", "www/20q29.png",
@@ -87,23 +87,23 @@ mod_map_2020_server <- function(id) {
 
       # Label map for 2020
       label_map_20 <- list(
+        "Q1:" = list(bins = c(45, 50, 55, 60, 65, 70), labels = c("45-50", "50-55", "55-60", "60-65", "65-70")),
         "Q2:" = list(bins = c(1, 2, 3, 4, 5, 6), labels = Q2label_20),
-        "Q4:" = list(bins = c(1, 2, 3, 4, 5), labels = Q4label_20),
         "Q3:" = list(bins = c(0, 1, 2, 3, 4, 5, 6), labels = Q3label_20),
+        "Q4:" = list(bins = c(1, 2, 3, 4, 5), labels = Q4label_20),
+        "Q6:" = list(bins = c(0, 1, 2, 3, 4, 5), labels = c("0", "1", "2", "3", "4", "5")),
+        "Q7:" = list(bins = c(0, 1, 2, 3, 4, 5, 6), labels = c("0", "1", "2", "3", "4", "5", "6")),
         "Q8:" = list(bins = c(1, 2, 3, 4, 5, 6), labels = Q8label_20),
+        "Q9:" = list(bins = c(0, 1, 2, 3, 4, 5), labels = c("0", "1", "2", "3", "4", "5")),
         "Q11" = list(bins = c(1, 2, 3, 4, 5, 6), labels = Q11label_20),
+        "Q12" = list(bins = c(1, 2, 3, 4, 5, 6), labels = Q12label),
         "Q14" = list(bins = c(1, 2, 3, 4, 5, 6), labels = Q11label_20), # Assuming labels same as Q11
         "Q20" = list(bins = c(1, 2, 3, 4, 5, 6), labels = Q11label_20), # Assuming labels same as Q11
-        "Q12" = list(bins = c(1, 2, 3, 4, 5, 6), labels = Q12label_20),
         "Q18" = list(bins = c(1, 2, 3, 4, 5, 6, 7), labels = Q18label_20),
         "Q24" = list(bins = c(0, 1, 2, 3, 4, 5), labels = Q24label_20),
         "Q32" = list(bins = c(0, 1, 2, 3, 4, 5, 6, 7), labels = Q32label_20),
-        "Q1:" = list(bins = c(45, 50, 55, 60, 65, 70), labels = c("45-50", "50-55", "55-60", "60-65", "65-70")),
-        "Q6:" = list(bins = c(0, 1, 2, 3, 4, 5), labels = c("0", "1", "2", "3", "4", "5")),
         "Q33" = list(bins = c(0, 1, 2, 3, 4, 5), labels = c("0", "1", "2", "3", "4", "5")),
         "Q19" = list(bins = c(0, 1, 2, 3, 4, 5), labels = c("0", "1", "2", "3", "4", "5")),
-        "Q9:" = list(bins = c(0, 1, 2, 3, 4, 5), labels = c("0", "1", "2", "3", "4", "5")),
-        "Q7:" = list(bins = c(0, 1, 2, 3, 4, 5, 6, 7), labels = c("0", "1", "2", "3", "4", "5", "6")),
         "Q28" = list(bins = c(0, 20, 40, 60, 80, 100), labels = c("0-20%", "20-40%", "40-60%", "60-80%", "80-100%")),
         "Q29" = list(bins = c(0, 20, 40, 60, 80, 100), labels = c("0-20%", "20-40%", "40-60%", "60-80%", "80-100%")),
         "Q27" = list(bins = c(0, 100, 200, 300, 400, 500, 600, 700), labels = c("0-100lbs", "100-200lbs", "200-300lbs", "300-400lbs", "400-500lbs", "500-600lbs", "600-700lbs")),
@@ -143,7 +143,7 @@ mod_map_2020_server <- function(id) {
           smoothFactor = .2,
           fillOpacity = .7,
           label = ~NAME,
-          color = ~ palrepcount(`Respondent Count`),
+          color = ~ palrepcount_20(`Respondent Count`),
           highlight = highlightOptions(
             weight = 2,
             color = "red",
@@ -156,7 +156,7 @@ mod_map_2020_server <- function(id) {
         ) %>%
         leaflet::addLegend(
           data = county_20_sf, ## overlay group 2 legend
-          pal = palrepcount, values = ~`Respondent Count`,
+          pal = palrepcount_20, values = ~`Respondent Count`,
           opacity = .7,
           title = "Count",
           group = "RC", position = "bottomright",
@@ -186,29 +186,20 @@ mod_map_2020_server <- function(id) {
           selected_column <- paste0(input$select2)
           data <- data_filter2()[selected_column]
 
-          # Clean selection variable
-          get_selecter_320 <- function(input_str) {
-            if (grepl("Q27", input_str)) {
-              return(substr(input_str, start = 1, stop = 5))
-            }
-            if (grepl("Q12", input_str)) {
-              return(substr(input_str, start = 1, stop = 6))
-            }
-            return(substr(input_str, start = 1, stop = 3))
-          }
+          selecter320 <- ifelse(
+            grepl("Q12", str_extract(as.character(input$select2), "[^ ]+")),
+            substr(str_extract(as.character(input$select2), "[^ ]+"), start = 1, stop = 6),
+            substr(str_extract(as.character(input$select2), "[^ ]+"), start = 1, stop = 3)
+          )
 
-          selecter320 <- get_selecter_320(str_extract(as.character(input$select2), "[^ ]+"))
-
-          # Lookup the bins and labels based on selecter320
           if (selecter320 %in% names(label_map_20)) {
-            bins20 <- label_map_20[[selecter320]]$bins
-            labels20 <- label_map_20[[selecter320]]$labels
+            bins <- label_map_20[[selecter320]]$bins
+            labels <- label_map_20[[selecter320]]$labels
           } else {
-            # Fallback default bins and labels
-            bins20 <- c(0, .25, .50, .75, 1)
-            labels20 <- c("0-25%", "25-50%", "50-75%", "75-100%")
+            # Default bins and labels here
+            bins <- c(0, 1, 2, 3, 4, 5) # Replace with your default bins
+            labels <- c("0", "1", "2", "3", "4", "5") # Replace with your default labels
           }
-
 
           # Reactive legend
           react_leg20 <- ifelse(selecter320 %in% par20_yn, "Percent Responding Yes",
@@ -217,7 +208,7 @@ mod_map_2020_server <- function(id) {
             )
           )
 
-          pal <- colorBin("YlOrRd", domain = as.numeric(data[[selected_column]]), bins = bins20)
+          pal <- colorBin("YlOrRd", domain = as.numeric(data[[selected_column]]), bins = bins)
 
           leafletProxy("map2020", data = data) %>%
             clearShapes() %>%
@@ -248,7 +239,7 @@ mod_map_2020_server <- function(id) {
               title = react_leg20,
               position = "bottomright",
               labFormat = function(type, cuts, p) {
-                paste0(labels20)
+                paste0(labels)
               }
             )
 

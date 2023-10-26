@@ -19,9 +19,9 @@ app_ui <- function(request) {
         windowTitle = "Participation Survey",
 
         # The tab panels go here
-        tabPanel("2017 Map", mod_map_2017_ui("name_of_module1_1")),
         tabPanel("2023 Map", mod_map_2023_ui("map_2023_1")),
         tabPanel("2020 Map", mod_map_2020_ui("name_of_module2_1")),
+        tabPanel("2017 Map", mod_map_2017_ui("name_of_module1_1")),
         tabPanel("Survey Documents", mod_survey_docs_ui("survey_docs_1")),
         tabPanel("About", mod_about_ui("about_1"))
       )
