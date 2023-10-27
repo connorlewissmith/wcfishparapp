@@ -1,53 +1,85 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# wcfishparapp
+# **West Coast Fisheries Participation App (`wcfishparapp`)**
 
-<!-- badges: start -->
-<!-- badges: end -->
+[![Lifecycle:
+experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 
-The goal of wcfishparapp is to …
+The goal of **`wcfishparapp`** is to provide an interactive
+visualization tool for exploring the West Coast fisheries participation
+survey data at the county level.
 
-## Installation
+## **Features**
 
-You can install the development version of wcfishparapp like so:
+-   Interactive county-level maps
 
-``` r
-# FILL THIS IN! HOW CAN PEOPLE INSTALL YOUR DEV PACKAGE?
-```
+-   Data filtering options
 
-## Example
+-   (Add more features here)
 
-This is a basic example which shows you how to solve a common problem:
+## **Installation**
 
-``` r
-library(wcfishparapp)
-## basic example code
-```
+To install the development version of **`wcfishparapp`**, you can run:
 
-What is special about using `README.Rmd` instead of just `README.md`?
-You can include R chunks like so:
+    rCopy code# Installation code here
+    devtools::install_github("your_github_repo/wcfishparapp")
 
-``` r
-summary(cars)
-#>      speed           dist       
-#>  Min.   : 4.0   Min.   :  2.00  
-#>  1st Qu.:12.0   1st Qu.: 26.00  
-#>  Median :15.0   Median : 36.00  
-#>  Mean   :15.4   Mean   : 42.98  
-#>  3rd Qu.:19.0   3rd Qu.: 56.00  
-#>  Max.   :25.0   Max.   :120.00
-```
+## **How to Run**
 
-You’ll still need to render `README.Rmd` regularly, to keep `README.md`
-up-to-date. `devtools::build_readme()` is handy for this. You could also
-use GitHub Actions to re-render `README.Rmd` every time you push. An
-example workflow can be found here:
-<https://github.com/r-lib/actions/tree/v1/examples>.
+After installing the package, run:
 
-You can also embed plots, for example:
+    rCopy codelibrary(wcfishparapp)
+    run_app()
 
-<img src="man/figures/README-pressure-1.png" width="100%" />
+## **Usage**
 
-In that case, don’t forget to commit and push the resulting figure
-files, so they display on GitHub and CRAN.
+#### Modules
+
+##### **mod_map_2017.R, mod_map_2020.R, mod_map_2023.R**
+
+-   **Purpose**: Describe what these modules are used for. Since they
+    seem to perform similar functions for different years, you might
+    explain what’s different about each.
+
+-   **Interaction**: Describe how users can interact with the Leaflet
+    maps. For example, can they zoom, filter, click to get more details,
+    etc.?
+
+-   **Data**: Briefly mention the data being visualized, and how it is
+    processed before being used in these modules.
+
+------------------------------------------------------------------------
+
+##### **mod_survey_docs.R**
+
+-   **Purpose**: Explain that this module is for viewing the actual
+    survey documents.
+
+-   **Features**: Describe the features, such as zooming, downloading,
+    etc.
+
+------------------------------------------------------------------------
+
+##### **mod_about.R**
+
+-   **Purpose**: Explain that this module provides general information
+    about the survey.
+
+-   **Content**: A brief outline of the information that users can
+    expect to find in this module.
+
+## **Screenshots**
+
+(Include some screenshots or GIFs)
+
+## **Contributing**
+
+We welcome contributions! See
+[CONTRIBUTING.md](https://chat.openai.com/c/CONTRIBUTING.md) for
+details.
+
+## **License**
+
+This project is licensed under the MIT License - see the
+[LICENSE](https://chat.openai.com/c/LICENSE) file for details.

@@ -58,7 +58,7 @@ mod_map_2017_server <- function(id) {
       # Create a data frame with configurations
       image_config <- data.frame(
         selecter = c("Q1:", "Q2:", "Q3:", "Q4:", "Q6:", "Q7:", "Q8:", "Q9:", "Q11", "Q13", "Q14", "Q15", "Q16", "Q17", "Q18", "Q19", "Q20", "Q21", "Q22", "Q23", "Q24", "Q25", "Q26", "Q28", "Q29", "Q31", "Q32", "Q33", "Q34"),
-        height = c(75, 200, 250, 100, 75, 75, 200, 75, 350, 350, 100, 250, 250, 300, 300, 150, 250, 250, 100, 150, 100, 100, 300, 100, 100, 400, 300, 75, 75),
+        height = c(75, 200, 250, 100, 75, 75, 200, 75, 350, 350, 100, 250, 200, 300, 300, 150, 250, 250, 100, 150, 100, 100, 300, 100, 100, 400, 300, 75, 75),
         width = c(400, 500, 500, 500, 500, 500, 500, 500, 600, 600, 500, 400, 400, 500, 500, 400, 400, 400, 400, 400, 400, 400, 500, 500, 500, 400, 500, 400, 400),
         src = c("www/20q1.png", "www/20q2.png", "www/20q3.png", "www/17q4.png", "www/17q6.png", "www/17q7.png", "www/17q8.png", "www/20q9.png", "www/20q11.png", "www/17q13.png", "www/17q14.png", "www/17q15.png", "www/17q16.png", "www/17q17.png", "www/17q18.png", "www/17q19.png", "www/17q20.png", "www/17q21.png", "www/17q22.png", "www/17q23.png", "www/17q24.png", "www/17q25.png", "www/17q26.png", "www/17q28.png", "www/17q29.png", "www/17q31.png", "www/17q32.png", "www/17q33.png", "www/17q34.png")
       )
@@ -74,6 +74,7 @@ mod_map_2017_server <- function(id) {
         "Q9:" = list(bins = c(0, 1, 2, 3, 4, 5), labels = c("0", "1", "2", "3", "4", "5")),
         "Q11" = list(bins = c(1, 2, 3, 4, 5, 6), labels = Q11label),
         "Q12" = list(bins = c(1, 2, 3, 4, 5, 6), labels = Q12label),
+        "Q13" = list(bins = c(0, .25, .50, .75, 1), labels = c("0-25%","25-50%","50-75%","75-100%")),
         "Q20" = list(bins = c(1, 2, 3, 4, 5, 6, 7), labels = Q20label),
         "Q26" = list(bins = c(1, 2, 3, 4), labels = Q26label),
         "Q31" = list(bins = c(1, 2, 3, 4, 5), labels = Q31label),
@@ -165,10 +166,13 @@ mod_map_2017_server <- function(id) {
           if (selecter3 %in% names(label_map_17)) {
             bins <- label_map_17[[selecter3]]$bins
             labels <- label_map_17[[selecter3]]$labels
+          } else if (grepl("Q12", selecter3)) {
+            bins <- c(1, 2, 3, 4, 5, 6)
+            labels <- Q12label
           } else {
             # Default bins and labels here
-            bins <- c(0, 1, 2, 3, 4, 5) # Replace with your default bins
-            labels <- c("0", "1", "2", "3", "4", "5") # Replace with your default labels
+            bins = c(0, .25, .50, .75, 1)
+            labels = c("0-25%", "25-50%", "50-75%", "75-100%")
           }
 
           # Reactive legend

@@ -97,22 +97,19 @@ mod_map_2020_server <- function(id) {
         "Q9:" = list(bins = c(0, 1, 2, 3, 4, 5), labels = c("0", "1", "2", "3", "4", "5")),
         "Q11" = list(bins = c(1, 2, 3, 4, 5, 6), labels = Q11label_20),
         "Q12" = list(bins = c(1, 2, 3, 4, 5, 6), labels = Q12label),
+        "Q13" = list(bins = c(1, 2, 3, 4), labels = Q13label_20),
         "Q14" = list(bins = c(1, 2, 3, 4, 5, 6), labels = Q11label_20), # Assuming labels same as Q11
-        "Q20" = list(bins = c(1, 2, 3, 4, 5, 6), labels = Q11label_20), # Assuming labels same as Q11
+        "Q17" = list(bins = c(0.5, 0.6, 0.7, 0.8, 0.9, 1), labels = c("50-60%", "60-70%", "70-80%", "80-90%", "90-100%")),
         "Q18" = list(bins = c(1, 2, 3, 4, 5, 6, 7), labels = Q18label_20),
+        "Q19" = list(bins = c(0, 1, 2, 3, 4, 5), labels = c("0", "1", "2", "3", "4", "5")),
+        "Q20" = list(bins = c(1, 2, 3, 4, 5, 6), labels = Q11label_20), # Assuming labels same as Q11
+        "Q21" = list(bins = c(0, 100, 200, 400, 600, 800, 1000), labels = c("less than 100 nm", "100-200 nm", "200-400 nm", "400-600 nm", "600-800 nm", "800-1000 nm")),
         "Q24" = list(bins = c(0, 1, 2, 3, 4, 5), labels = Q24label_20),
         "Q32" = list(bins = c(0, 1, 2, 3, 4, 5, 6, 7), labels = Q32label_20),
         "Q33" = list(bins = c(0, 1, 2, 3, 4, 5), labels = c("0", "1", "2", "3", "4", "5")),
-        "Q19" = list(bins = c(0, 1, 2, 3, 4, 5), labels = c("0", "1", "2", "3", "4", "5")),
         "Q28" = list(bins = c(0, 20, 40, 60, 80, 100), labels = c("0-20%", "20-40%", "40-60%", "60-80%", "80-100%")),
         "Q29" = list(bins = c(0, 20, 40, 60, 80, 100), labels = c("0-20%", "20-40%", "40-60%", "60-80%", "80-100%")),
-        "Q27" = list(bins = c(0, 100, 200, 300, 400, 500, 600, 700), labels = c("0-100lbs", "100-200lbs", "200-300lbs", "300-400lbs", "400-500lbs", "500-600lbs", "600-700lbs")),
-        "Q13" = list(bins = c(1, 2, 3, 4), labels = Q13label_20),
-        "Q21" = list(bins = c(0, 100, 200, 400, 600, 800, 1000), labels = c("less than 100 nm", "100-200 nm", "200-400 nm", "400-600 nm", "600-800 nm", "800-1000 nm")),
-        "Q27-1" = list(bins = c(0, .25, .50, .75, 1), labels = c("0-25%", "25-50%", "50-75%", "75-100%")),
-        "Q27-2" = list(bins = c(0, 100, 200, 300, 400), labels = c("0-100lbs", "100-200lbs", "200-300lbs", "300-400lbs")),
         "Q34" = list(bins = c(0.5, 0.6, 0.7, 0.8, 0.9, 1), labels = c("50-60%", "60-70%", "70-80%", "80-90%", "90-100%")),
-        "Q17" = list(bins = c(0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100), labels = c("0-10%", "10-20%", "20-30%", "30-40%", "40-50%", "50-60%", "60-70%", "70-80%", "80-90%", "90-100%")),
         "Res" = list(bins = c(0, 10, 20, 30, 40, 50, 60, 70, 80), labels = c("0-10", "10-20", "20-30", "30-40", "40-50", "50-60", "60-70", "70-80"))
       )
 
@@ -195,10 +192,16 @@ mod_map_2020_server <- function(id) {
           if (selecter320 %in% names(label_map_20)) {
             bins <- label_map_20[[selecter320]]$bins
             labels <- label_map_20[[selecter320]]$labels
+          } else if (grepl("Q12", selecter320)) {
+            bins <- c(1, 2, 3, 4, 5, 6)
+            labels <- Q12label
+          } else if (grepl("Q27-2", selecter320)) {
+            bins <- c(0, 50, 100, 150, 200, 250, 300, 350)
+            labels <- c("0-50lbs", "50-100lbs", "100-150lbs", "150-200lbs", "200-250lbs", "250-300lbs", "300-350lbs")
           } else {
             # Default bins and labels here
-            bins <- c(0, 1, 2, 3, 4, 5) # Replace with your default bins
-            labels <- c("0", "1", "2", "3", "4", "5") # Replace with your default labels
+            bins = c(0, .25, .50, .75, 1)
+            labels = c("0-25%", "25-50%", "50-75%", "75-100%")
           }
 
           # Reactive legend
