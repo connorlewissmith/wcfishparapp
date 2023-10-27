@@ -29,6 +29,9 @@ mod_map_2020_ui <- function(id) {
                                         Medians are displayed for ordinal statement questions and yes-no questions are displayed as the percent responding yes.
                                         To use the map, you can click, drag, and use the zoom. The selection tool below allows for working through the
                                                        survey questions and subquestions. ")), style = "color:#045a8d"),
+        # Add a download button here
+        downloadButton(ns('downloadData2'), 'Download CSV'),
+
         selectInput(
           inputId = ns("select2"),
           label = "Select Survey Question",
@@ -306,6 +309,16 @@ mod_map_2020_server <- function(id) {
             )
         }
       })
+
+      # Download handler
+      output$downloadData2 <- downloadHandler(
+        filename = function() {
+          paste('county_20_data-', Sys.Date(), '.csv', sep='')
+        },
+        content = function(file) {
+          write.csv(county_20_df, file)
+        }
+      )
 
     }
   )
