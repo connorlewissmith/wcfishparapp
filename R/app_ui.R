@@ -2,7 +2,7 @@
 #'
 #' @param request Internal parameter for `{shiny}`.
 #'     DO NOT REMOVE.
-#' @import shiny leaflet shinythemes dplyr RColorBrewer stringr
+#' @import shiny leaflet shinythemes dplyr RColorBrewer stringr shinyalert
 #' @noRd
 
 app_ui <- function(request) {
@@ -34,7 +34,7 @@ app_ui <- function(request) {
 #' This function is internally used to add external
 #' resources inside the Shiny application.
 #'
-#' @import shiny
+#' @import shiny shinyalert
 #' @importFrom golem add_resource_path activate_js favicon bundle_resources
 #' @noRd
 golem_add_external_resources <- function() {
@@ -49,7 +49,5 @@ golem_add_external_resources <- function() {
       path = app_sys("app/www"),
       app_title = "wcfishparapp"
     )
-    # Add here other external resources
-    # for example, you can add shinyalert::useShinyalert()
   )
 }
