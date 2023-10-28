@@ -21,7 +21,7 @@ mod_map_2020_ui <- function(id) {
         top = 75, left = 55, width = 350, fixed = TRUE,
         draggable = TRUE, height = "auto",
         img(
-          height = 80,
+          height = 75,
           width = 325,
           src = "www/noaalogo.png"
         ),

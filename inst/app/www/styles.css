@@ -63,3 +63,22 @@ h1, h2, h3, h4 { font-weight: 400; }
   white-space: normal;
   text-align: center;
 }
+
+.no-background {
+  background: none !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.center-tabs .nav-tabs {
+  display: flex;
+  justify-content: center;
+}
+
+.center-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
