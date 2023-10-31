@@ -14,22 +14,21 @@ survey data at the county level.
 
 -   Interactive county-level maps
 
--   Data filtering options
+-   Download compiled survey data
 
--   (Add more features here)
+-   Familiarization with the survey tools
 
 ## **Installation**
 
 To install the development version of **`wcfishparapp`**, you can run:
 
-    rCopy code# Installation code here
     devtools::install_github("your_github_repo/wcfishparapp")
 
 ## **How to Run**
 
 After installing the package, run:
 
-    rCopy codelibrary(wcfishparapp)
+    library(wcfishparapp)
     run_app()
 
 ## **Usage**

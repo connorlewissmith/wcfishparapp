@@ -87,7 +87,7 @@ mod_map_2017_server <- function(id) {
         "Q22" = list(bins = c(0, 1, 2, 3, 4, 5), labels = c("0", "1", "2", "3", "4", "5")),
         "Q28" = list(bins = c(0, 20, 40, 60, 80, 100), labels = c("0-20%", "20-40%", "40-60%", "60-80%", "80-100%")),
         "Q29" = list(bins = c(0, 20, 40, 60, 80, 100), labels = c("0-20%", "20-40%", "40-60%", "60-80%", "80-100%")),
-        "Q25" = list(bins = c(0, 50, 100, 150, 200, 250, 300, 350), labels = c("0-50lbs", "50-100lbs", "100-150lbs", "150-200lbs", "200-250lbs", "250-300lbs", "300-350lbs")),
+        "Q25" = list(bins = c(0, 50, 100, 150, 200, 250, 300, 501), labels = c("0-50lbs", "50-100lbs", "100-150lbs", "150-200lbs", "200-250lbs", "250-300lbs", "300-500lbs")),
         "Q34" = list(bins = c(0.5, 0.6, 0.7, 0.8, 0.9, 1), labels = c("50-60%", "60-70%", "70-80%", "80-90%", "90-100%")),
         "Q19" = list(bins = c(0.6, 0.7, 0.8, 0.9, 1), labels = c("60-70%", "70-80%", "80-90%", "90-100%")),
         "Res" = list(bins = c(0, 10, 20, 30, 40, 50, 60, 70, 80), labels = c("0 - 10", "20 - 20", "20 - 30", "30 - 40", "40 - 50", "50 - 60", "60 - 70", "70 - 80"))
@@ -262,10 +262,10 @@ mod_map_2017_server <- function(id) {
         unemployment <- ((sub$`Unemployement Rate 2017`) * 100)
         respcount <- sub$`Respondent Count`
 
-        popformat <- paste(nm, "County", "<br>", "Responent Count:", respcount, "<br>", "Median income:",
-                           income, "<br>", "Population:", popul, "<br>", "Urban to rural:", rural, "<br>",
-                           "College grad:", college, "%", "<br>", "Unemployment:", unemployment, "%", "<br>",
-                           sep = " "
+        popformat <- paste('<center><b>', nm, " County", '</b></center>', "Responent Count: ", respcount, "<br>", "Median income: ",
+                           income, "<br>", "Population: ", popul, "<br>", "Urban to rural: ", rural, "<br>",
+                           "College grad: ", college, "%", "<br>", "Unemployment: ", unemployment, "%", "<br>",
+                           sep = ""
         )
         if (is.null(click)) {
           leafletProxy("map2017") %>%

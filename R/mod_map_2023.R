@@ -67,16 +67,14 @@ mod_map_2023_server <- function(id){
       "Q9:" = list(bins = c(1, 2, 3, 4, 5, 6), labels = Q9label_23),
       "Q10" = list(bins = c(0, 1, 2, 3, 4, 5), labels = c("0", "1", "2", "3", "4", "5")), # Formally Q9
       "Q12" = list(bins = c(1, 2, 3, 4, 5, 6), labels = Q12label_23),
-      "Q13" = list(bins = c(1, 2, 3, 4, 5, 6), labels = Q13label_23),
+      "Q13" = list(bins = c(1, 2, 3, 4, 5, 6), labels = Q12label),
       "Q14" = list(bins = c(1, 2, 3, 4, 5, 6), labels = Q14label_23),
-      "Q15" = list(bins = c(0, 100, 200, 400, 600, 800, 1000), labels = c("less than 100 nm", "100-200 nm", "200-400 nm", "400-600 nm", "600-800 nm", "800-1000 nm")),
-      "Q17" = list(bins = c(0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100), labels = c("0-10%", "10-20%", "20-30%", "30-40%", "40-50%", "50-60%", "60-70%", "70-80%", "80-90%", "90-100%")),
+      "Q17" = list(bins = c(0.5, 0.6, 0.7, 0.8, 0.9, 1), labels = c("50-60%", "60-70%", "70-80%", "80-90%", "90-100%")),
       "Q18" = list(bins = c(1, 2, 3, 4, 5, 6, 7), labels = Q18label_23),
       "Q19" = list(bins = c(0, 1, 2, 3, 4, 5), labels = c("0", "1", "2", "3", "4", "5")),
       "Q20" = list(bins = c(1, 2, 3, 4, 5, 6), labels = Q20label_23),
       "Q22" = list(bins = c(0, 20, 40, 60, 80, 100), labels = c("0-20%", "20-40%", "40-60%", "60-80%", "80-100%")),
-      "Q25-1" = list(bins = c(0, .25, .50, .75, 1), labels = c("0-25%", "25-50%", "50-75%", "75-100%")),
-      "Q25-2" = list(bins = c(0, 100, 200, 300, 400), labels = c("0-100lbs", "100-200lbs", "200-300lbs", "300-400lbs")),
+      "Q23" = list(bins = c(1, 2, 3, 4, 5), labels = c("Very unlikely", "Unlikely", "Neutral", "Likely", "Very likely")),
       "Q26" = list(bins = c(0, 20, 40, 60, 80, 100), labels = c("0-20%", "20-40%", "40-60%", "60-80%", "80-100%")),
       "Q27" = list(bins = c(0, 20, 40, 60, 80, 100), labels = c("0-20%", "20-40%", "40-60%", "60-80%", "80-100%")),
       "Q30" = list(bins = c(0, 1, 2, 3, 4, 5), labels = c("0", "1", "2", "3", "4", "5")),
@@ -87,29 +85,31 @@ mod_map_2023_server <- function(id){
     # Create a data frame with configurations
     image_lookup <- data.frame(
       selecter = c(
-        "Q1:", "Q2:", "Q3:", "Q4:", "Q7:", "Q8:", "Q9:", "Q10:", "Q12",
+        "Q1:", "Q2:", "Q3:", "Q4:", "Q7:", "Q8:", "Q9:", "Q10", "Q12",
         "Q13", "Q14", "Q15", "Q16", "Q17", "Q18", "Q19", "Q20", "Q21",
-        "Q22", "Q23", "Q24", "Q25", "Q26", "Q28", "Q29", "Q31", "Q32",
-        "Q33", "Q34", "Q27-1", "Q27-2"
+        "Q22", "Q23", "Q24", "Q25-1", "Q26", "Q28", "Q29", "Q31", "Q32",
+        "Q33", "Q34", "Q27-1", "Q27-2", "Q15_1", "Q15_2", "Q15_3", "Q22_3",
+        "Q27", "Q25-2", "Q30"
       ),
       height = c(
-        75, 200, 250, 100, 75, 75, 200, 75, 350, 300, 250, 100, 150, 200,
-        250, 100, 200, 75, 100, 125, 200, 100, 100, 75, 75, 200, 250, 75,
-        75, 150, 150
+        75, 200, 250, 100, 75, 75, 200, 75, 350, 300, 250, 300, 100, 200,
+        250, 100, 200, 200, 175, 225, 100, 150, 100, 75, 200, 200, 75, 300,
+        300, 150, 150, 300, 300, 300, 175, 100, 150, 75
       ),
       width = c(
-        400, 500, 500, 500, 500, 500, 500, 500, 600, 550, 500, 500, 350, 400,
-        400, 400, 400, 400, 400, 400, 400, 400, 400, 500, 500, 400, 400, 400,
-        400, 400, 400
+        400, 500, 500, 500, 500, 500, 500, 500, 600, 550, 500, 500, 500, 400,
+        400, 400, 400, 500, 500, 500, 400, 500, 400, 500, 400, 400, 400, 500,
+        500, 400, 400, 500, 500, 500, 500, 400, 500, 400
       ),
       src = c(
         "www/20q1.png", "www/20q2.png", "www/20q3.png", "www/17q4.png", "www/23q7.png",
         "www/23q8.png", "www/23q9.png", "www/23q10.png", "www/23q12.png", "www/20q13.png",
-        "www/20q14.png", "www/20q15.png", "www/20q16.png", "www/20q17.png", "www/20q18.png",
-        "www/20q19.png", "www/20q20.png", "www/20q21.png", "www/20q22.png", "www/20q23.png",
-        "www/20q24.png", "www/20q25.png", "www/20q26.png", "www/20q28.png", "www/20q29.png",
-        "www/20q31.png", "www/20q32.png", "www/20q33.png", "www/20q34.png", "www/20q27.png",
-        "www/20q27.png"
+        "www/23q14.png", "www/23q15.png", "www/23q16.png", "www/20q17.png", "www/20q18.png",
+        "www/20q19.png", "www/20q20.png", "www/23q21.png", "www/23q22.png", "www/23q23.png",
+        "www/23q24.png", "www/23q25.png", "www/23q26.png", "www/23q28.png", "www/23q29.png",
+        "www/23q31.png", "www/23q32.png", "www/23q33.png", "www/20q34.png", "www/20q27.png",
+        "www/20q27.png", "www/23q15.png", "www/23q15.png", "www/23q15.png", "www/23q22.png",
+        "www/23q27.png", "www/23q25.png", "www/23q30.png"
       ),
       stringsAsFactors = FALSE
     )
@@ -184,38 +184,69 @@ mod_map_2023_server <- function(id){
         selected_column <- paste0(input$select3)
         data <- data_filter3()[selected_column]
 
-        # Clean selection variable
-        get_selecter_320 <- function(input_str) {
-          if (grepl("Q25", input_str)) {
-            return(substr(input_str, start = 1, stop = 5))
-          }
-          if (grepl("Q13", input_str)) {
-            return(substr(input_str, start = 1, stop = 6))
-          }
-          return(substr(input_str, start = 1, stop = 3))
-        }
-
-        selecter320 <- get_selecter_320(str_extract(as.character(input$select3), "[^ ]+"))
-
-        # Lookup the bins and labels based on selecter320
-        if (selecter320 %in% names(label_map_23)) {
-          bins23 <- label_map_23[[selecter320]]$bins
-          labels23 <- label_map_23[[selecter320]]$labels
+        # Define your initial 'selecter2023'
+        prefix <- str_extract(as.character(input$select3), "[^ ]+")
+        if (grepl("^Q13", prefix)) {
+          selecter2023 <- substr(prefix, start = 1, stop = 6)
+        } else if (grepl("^Q15_1", prefix)) {
+          selecter2023 <- "Q15_1"  # Special case for Q15_1, Q15_2, etc. but not Q15_3
+        } else if (grepl("^Q15_2", prefix)) {
+          selecter2023 <- "Q15_2"  # Special case for Q15_1, Q15_2, etc. but not Q15_3
+        } else if (grepl("^Q15_3", prefix)) {
+          selecter2023 <- "Q15_3"  # Special case for exactly Q15_3
+        } else if (grepl("^Q22_3", prefix)) {
+          selecter2023 <- "Q22_3"  # Special case for exactly Q22_3
+        } else if (grepl("^Q25-1", prefix)) {
+          selecter2023 <- "Q25-1"  # Special case for exactly Q22_3
+        } else if (grepl("^Q25-2", prefix)) {
+        selecter2023 <- "Q25-2"  # Special case for exactly Q22_3
         } else {
-          # Fallback default bins and labels
-          bins23 <- c(0, .25, .50, .75, 1)
-          labels23 <- c("0-25%", "25-50%", "50-75%", "75-100%")
+          selecter2023 <- substr(prefix, start = 1, stop = 3)
         }
 
+        # Define bins and labels based on 'selecter2023'
+        if (selecter2023 %in% names(label_map_23)) {
+          bins <- label_map_23[[selecter2023]]$bins
+          labels <- label_map_23[[selecter2023]]$labels
+        } else if (grepl("Q13", selecter2023)) {
+          bins <- c(1, 2, 3, 4, 5, 6)
+          labels <- Q12label
+        } else if (selecter2023 == "Q15_1") {
+          bins = c(0, 10, 20, 30, 50, 75, 100, 2000)  # Define your custom bins for Q15 not ending with _3
+          labels = c("less than 10 miles", "10-20 miles", "20-30 miles", "30-50 miles", "50-75 miles", "75-100 miles", "over 100 miles")  # Define your custom labels for Q15 not ending with _3
+        } else if (selecter2023 == "Q15_2") {
+          bins = c(0, 10, 20, 30, 50, 75, 100, 2000)  # Define your custom bins for Q15 not ending with _3
+          labels = c("less than 10 miles", "10-20 miles", "20-30 miles", "30-50 miles", "50-75 miles", "75-100 miles", "over 100 miles")  # Define your custom labels for Q15 not ending with _3
+        } else if (selecter2023 == "Q15_3") {
+          bins = c(0, .25, .50, .75, 1)
+          labels = c("0-25%", "25-50%", "50-75%", "75-100%")
+        } else if (selecter2023 == "Q22_3") {
+          bins = c(0, 20, 40, 60, 80, 100, 150, 500)
+          labels = c("0-20%", "20-40%", "40-60%", "60-80%", "80-100%", "100-150%", "over 150%")
+        } else if (grepl("Q25-1", selecter2023)) {
+          bins = c(0, .25, .50, .75, 1)
+          labels = c("0-25%", "25-50%", "50-75%", "75-100%")
+        } else if (grepl("Q25-2", selecter2023)) {
+          bins <- c(0, 50, 100, 150, 200, 250, 300, 501)
+          labels <- c("0-50lbs", "50-100lbs", "100-150lbs", "150-200lbs", "200-250lbs", "250-300lbs", "300-500lbs")
+        } else {
+          # Default bins and labels here
+          bins = c(0, .25, .50, .75, 1)
+          labels = c("0-25%", "25-50%", "50-75%", "75-100%")
+        }
 
         # Reactive legend
-        react_leg23 <- ifelse(selecter320 %in% par23_yn, "Percent Responding Yes",
-                              ifelse(selecter320 == "Q17", "Percent Prefering Fishing",
-                                     ifelse(selecter320 == "Res", "Count", "Displaying Median")
-                              )
+        react_leg23 <- ifelse(selecter2023 %in% par23_yn, "Percent Responding Yes",
+          ifelse(selecter2023 == "Q17", "Percent Prefering Fishing",
+            ifelse(selecter2023 == "Q15_3", "Percent Responding NA",
+              ifelse(selecter2023 == "Q22-5", "Displaying Mean",
+                ifelse(selecter2023 == "Res", "Count", "Displaying Median")
+              )
+            )
+          )
         )
 
-        pal <- colorBin("YlOrRd", domain = as.numeric(data[[selected_column]]), bins = bins23)
+        pal <- colorBin("YlOrRd", domain = as.numeric(data[[selected_column]]), bins = bins)
 
         leafletProxy("map2023", data = data) %>%
           clearShapes() %>%
@@ -246,22 +277,22 @@ mod_map_2023_server <- function(id){
             title = react_leg23,
             position = "bottomright",
             labFormat = function(type, cuts, p) {
-              paste0(labels23)
+              paste0(labels)
             }
           )
 
         output$image3 <- renderUI({
-          # Special cases for selecter320 %in% Q12_break and Q12_break2
-          if (selecter320 %in% Q13_break) {
-            return(tags$img(height = 350, width = 600, src = "www/20q121.png"))
+          # Special cases for selecter2023 %in% Q12_break and Q12_break2
+          if (selecter2023 %in% Q13_break) {
+            return(tags$img(height = 350, width = 600, src = "www/23q131.png"))
           }
 
-          if (selecter320 %in% Q13_break2) {
-            return(tags$img(height = 350, width = 600, src = "www/20q122.png"))
+          if (selecter2023 %in% Q13_break2) {
+            return(tags$img(height = 350, width = 600, src = "www/23q132.png"))
           }
 
           # Find the matching row in the lookup table
-          match_row <- subset(image_lookup, selecter == selecter320)
+          match_row <- subset(image_lookup, selecter == selecter2023)
 
           if (nrow(match_row) == 1) {
             return(tags$img(height = match_row$height, width = match_row$width, src = match_row$src))
@@ -294,11 +325,12 @@ mod_map_2023_server <- function(id){
       unemployment <- ((sub$`Unemployement Rate 2023`) * 100)
       respcount <- sub$`Respondent Count`
 
-      popformat <- paste(nm, "County", "<br>", "Responent Count:", respcount, "<br>", "Median income:",
-                         income, "<br>", "Population:", popul, "<br>", "Urban to rural:", rural, "<br>",
-                         "College grad:", college, "%", "<br>", "Unemployment:", unemployment, "%", "<br>",
-                         sep = " "
+      popformat <- paste('<center><b>', nm, " County", '</b></center>', "Responent Count: ", respcount, "<br>", "Median income: ",
+                         income, "<br>", "Population: ", popul, "<br>", "Urban to rural: ", rural, "<br>",
+                         "College grad: ", college, "%", "<br>", "Unemployment: ", unemployment, "%", "<br>",
+                         sep = ""
       )
+
       if (is.null(click)) {
         leafletProxy("map2023") %>%
           clearPopups()
