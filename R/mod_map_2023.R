@@ -29,12 +29,20 @@ mod_map_2023_ui <- function(id) {
                                         Medians are displayed for ordinal statement questions and yes-no questions are displayed as the percent responding yes.
                                         To use the map, you can click, drag, and use the zoom. The selection tool below allows for working through the
                                                        survey questions and subquestions. ")), style = "color:#045a8d"),
-        # Add a download button here
-        downloadButton(ns('downloadData3'), 'Download CSV'),
-        # Select input tool
+        div(
+          style = "width: 100%; display: flex;",
+          div(
+            style = "flex: 1;",
+            downloadButton(ns('downloadData3'), 'Download CSV', style = "height: 50px;")
+          ),
+          div(
+            style = "flex: 1;",
+            actionButton(inputId = ns("toggle_button3"), label = "Hide Full Selected Question", style = "white-space: normal; font-size: 80%; height: 50px;")
+          )
+        ),
         selectInput(
           inputId = ns("select3"),
-          label = "Select Survey Question",
+          label = "Select Abbreviated Survey Question",
           choices = question_names_23,
           selected = "Respondent Count"
         ),
@@ -45,9 +53,21 @@ mod_map_2023_ui <- function(id) {
           uiOutput(outputId = ns("image3"))
         )
       )
+    ),
+    tags$script(
+      HTML(
+        paste0(
+          "$(document).ready(function(){",
+          "$('#", ns("toggle_button3"), "').on('click', function(){",
+          "$('#", ns("controls3"), "').toggle();",
+          "});",
+          "});"
+        )
+      )
     )
   )
 }
+
 
 #' map_2023 Server Functions
 #'
@@ -55,6 +75,21 @@ mod_map_2023_ui <- function(id) {
 mod_map_2023_server <- function(id){
   moduleServer( id, function(input, output, session){
     ns <- session$ns
+
+    # Create a reactive value to store the state of the panel
+    showPanel <- reactiveVal(TRUE)
+
+    observeEvent(input$toggle_button3, {
+      # Toggle the state
+      showPanel(!showPanel())
+
+      # Update the label of the button based on the state
+      if (showPanel()) {
+        updateActionButton(session, "toggle_button3", label = "Hide Full Selected Question")
+      } else {
+        updateActionButton(session, "toggle_button3", label = "View Full Selected Question")
+      }
+    })
 
     # Label map for 2020
     label_map_23 <- list(
@@ -89,17 +124,17 @@ mod_map_2023_server <- function(id){
         "Q13", "Q14", "Q15", "Q16", "Q17", "Q18", "Q19", "Q20", "Q21",
         "Q22", "Q23", "Q24", "Q25-1", "Q26", "Q28", "Q29", "Q31", "Q32",
         "Q33", "Q34", "Q27-1", "Q27-2", "Q15_1", "Q15_2", "Q15_3", "Q22_3",
-        "Q27", "Q25-2", "Q30"
+        "Q27", "Q25-2", "Q30", "Res"
       ),
       height = c(
         75, 200, 250, 100, 75, 75, 200, 75, 350, 300, 250, 300, 100, 200,
         250, 100, 200, 200, 175, 225, 100, 150, 100, 75, 200, 200, 75, 300,
-        300, 150, 150, 300, 300, 300, 175, 100, 150, 75
+        300, 150, 150, 300, 300, 300, 175, 100, 150, 75, 100
       ),
       width = c(
         400, 500, 500, 500, 500, 500, 500, 500, 600, 550, 500, 500, 500, 400,
         400, 400, 400, 500, 500, 500, 400, 500, 400, 500, 400, 400, 400, 500,
-        500, 400, 400, 500, 500, 500, 500, 400, 500, 400
+        500, 400, 400, 500, 500, 500, 500, 400, 500, 400, 500
       ),
       src = c(
         "www/20q1.png", "www/20q2.png", "www/20q3.png", "www/17q4.png", "www/23q7.png",
@@ -109,7 +144,7 @@ mod_map_2023_server <- function(id){
         "www/23q24.png", "www/23q25.png", "www/23q26.png", "www/23q28.png", "www/23q29.png",
         "www/23q31.png", "www/23q32.png", "www/23q33.png", "www/20q34.png", "www/20q27.png",
         "www/20q27.png", "www/23q15.png", "www/23q15.png", "www/23q15.png", "www/23q22.png",
-        "www/23q27.png", "www/23q25.png", "www/23q30.png"
+        "www/23q27.png", "www/23q25.png", "www/23q30.png", "www/all_res.png"
       ),
       stringsAsFactors = FALSE
     )

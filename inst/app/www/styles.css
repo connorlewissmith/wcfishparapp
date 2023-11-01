@@ -86,4 +86,13 @@ h1, h2, h3, h4 { font-weight: 400; }
   top: 70%;  /* Adjust this to move the popup higher or lower */
 }
 
+.section-container {
+  margin: 15px;
+  border-bottom: 1px solid #ccc; /* Adds the line */
+  padding-bottom: 20px;
+}
+
+.gif-center {
+  margin: auto;
+}
 

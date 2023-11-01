@@ -29,12 +29,20 @@ mod_map_2020_ui <- function(id) {
                                         Medians are displayed for ordinal statement questions and yes-no questions are displayed as the percent responding yes.
                                         To use the map, you can click, drag, and use the zoom. The selection tool below allows for working through the
                                                        survey questions and subquestions. ")), style = "color:#045a8d"),
-        # Add a download button here
-        downloadButton(ns('downloadData2'), 'Download CSV'),
-
+        div(
+          style = "width: 100%; display: flex;",
+          div(
+            style = "flex: 1;",
+            downloadButton(ns('downloadData2'), 'Download CSV', style = "height: 50px;")
+          ),
+          div(
+            style = "flex: 1;",
+            actionButton(inputId = ns("toggle_button2"), label = "Hide Full Selected Question", style = "white-space: normal; font-size: 80%; height: 50px;")
+          )
+        ),
         selectInput(
           inputId = ns("select2"),
-          label = "Select Survey Question",
+          label = "Select Abbreviated Survey Question",
           choices = question_names_20,
           selected = "Respondent Count"
         ),
@@ -45,9 +53,21 @@ mod_map_2020_ui <- function(id) {
           uiOutput(outputId = ns("image2"))
         )
       )
+    ),
+    tags$script(
+      HTML(
+        paste0(
+          "$(document).ready(function(){",
+          "$('#", ns("toggle_button2"), "').on('click', function(){",
+          "$('#", ns("controls2"), "').toggle();",
+          "});",
+          "});"
+        )
+      )
     )
   )
 }
+
 
 #' name_of_module2 Server Functions
 #'
@@ -58,23 +78,38 @@ mod_map_2020_server <- function(id) {
     function(input, output, session) {
       ns <- NS(id)
 
+      # Create a reactive value to store the state of the panel
+      showPanel <- reactiveVal(TRUE)
+
+      observeEvent(input$toggle_button2, {
+        # Toggle the state
+        showPanel(!showPanel())
+
+        # Update the label of the button based on the state
+        if (showPanel()) {
+          updateActionButton(session, "toggle_button2", label = "Hide Full Selected Question")
+        } else {
+          updateActionButton(session, "toggle_button2", label = "View Full Selected Questionl")
+        }
+      })
+
       # Create a data frame with configurations
       image_lookup <- data.frame(
         selecter = c(
           "Q1:", "Q2:", "Q3:", "Q4:", "Q6:", "Q7:", "Q8:", "Q9:", "Q11",
           "Q13", "Q14", "Q15", "Q16", "Q17", "Q18", "Q19", "Q20", "Q21",
           "Q22", "Q23", "Q24", "Q25", "Q26", "Q28", "Q29", "Q31", "Q32",
-          "Q33", "Q34", "Q27-1", "Q27-2"
+          "Q33", "Q34", "Q27-1", "Q27-2", "Res"
         ),
         height = c(
           75, 200, 250, 100, 75, 75, 200, 75, 350, 300, 250, 100, 150, 200,
           250, 100, 200, 75, 100, 125, 200, 100, 100, 75, 75, 200, 250, 75,
-          75, 150, 150
+          75, 150, 150, 100
         ),
         width = c(
           400, 500, 500, 500, 500, 500, 500, 500, 600, 550, 500, 500, 350, 400,
           400, 400, 400, 400, 400, 400, 400, 400, 400, 500, 500, 400, 400, 400,
-          400, 400, 400
+          400, 400, 400, 500
         ),
         src = c(
           "www/20q1.png", "www/20q2.png", "www/20q3.png", "www/17q4.png", "www/17q6.png",
@@ -83,7 +118,7 @@ mod_map_2020_server <- function(id) {
           "www/20q19.png", "www/20q20.png", "www/20q21.png", "www/20q22.png", "www/20q23.png",
           "www/20q24.png", "www/20q25.png", "www/20q26.png", "www/20q28.png", "www/20q29.png",
           "www/20q31.png", "www/20q32.png", "www/20q33.png", "www/20q34.png", "www/20q27.png",
-          "www/20q27.png"
+          "www/20q27.png", "www/all_res.png"
         ),
         stringsAsFactors = FALSE
       )
