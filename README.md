@@ -70,7 +70,7 @@ After installing the package, run:
 
 ## **Screenshots**
 
-(Include some screenshots or GIFs)
+![Demo](inst/app/www/demo.gif)
 
 ## **Contributing**
 
