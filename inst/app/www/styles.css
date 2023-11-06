@@ -83,7 +83,7 @@ h1, h2, h3, h4 { font-weight: 400; }
 
 .swal2-popup {
   margin: 0 auto;
-  top: 70%;  /* Adjust this to move the popup higher or lower */
+  top: 100%;  /* Adjust this to move the popup higher or lower */
 }
 
 .section-container {
