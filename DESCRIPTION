@@ -9,10 +9,13 @@ License: MIT + file LICENSE
 Imports: 
     config,
     dplyr,
+    htmltools,
     golem,
+    ggplot2,
     leaflet,
     magrittr,
     pkgload,
+    RColorBrewer,
     sf,
     shiny,
     shinythemes,
