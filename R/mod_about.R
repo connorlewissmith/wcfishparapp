@@ -24,13 +24,9 @@ mod_about_ui <- function(id) {
          behaviors, and the socio-economic impact on communities across Washington, Oregon, and California.")
     ),
     div(
-      style = "text-align: center;",
-      img(src = "www/sidebyside.png", class = "responsive-img")
-    ),
-    div(
       class = "section-container",
       h3("Purpose of the Survey"),
-      p("Surveys conducted in 2017, 2020, and 2023 aim to understand why fishermen engage in commercial fishing,
+      p("Surveys conducted in 2017, 2020, 2023, and 2026 aim to understand why fishermen engage in commercial fishing,
          and how changes in opportunities and profitability affect individual communities.")
     ),
     div(
@@ -38,24 +34,13 @@ mod_about_ui <- function(id) {
       h3("How to Navigate the App"),
       p("This application allows you to:",
         tags$ul(
-          tags$li("View survey responses by county through interactive maps."),
-          tags$li("Use selection tools to delve into specific questions and sub-questions."),
-          tags$li("Download the displayed data via a 'Download CSV' button.")
+          tags$li("View survey responses by county through an interactive map."),
+          tags$li("Pick a question, then move between survey years to see how it changes. Your question stays selected as you switch years."),
+          tags$li("Download the displayed data with 'Download CSV', or save the map itself with the download control on the map.")
         ),
-        "Before comparing different survey years, check the 'Survey Documents' tab to ensure the question exists in each survey."
-      ),
-      div(style = "text-align: center;", # Centering the GIF
-          img(src = "www/demo.gif", class = "responsive-img gif-center") # Added class for the gif
-      )
-    ),
-    div(
-      class = "section-container",
-      h3("Additional Resources"),
-      p("To explore more, visit the additional applications for the ",
-        a("2017", href = "https://www.fisheries.noaa.gov/data-tools/west-coast-fisheries-participation-survey-result-tool-2017"),
-        " and ",
-        a("2020", href = "https://www.fisheries.noaa.gov/data-tools/west-coast-fisheries-participation-survey-result-tool-2020"),
-        " survey results. These platforms provide filtering options and allow data downloads."
+        "The survey renumbered most questions between waves, so questions are listed by wording rather than number, with the number for the
+         selected year shown underneath. Where a question was not asked in a given year, or where the wording or scale changed enough that
+         the years are not directly comparable, the map says so. The 'Survey Documents' tab has the full instrument for each year."
       )
     ),
     div(
