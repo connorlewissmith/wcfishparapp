@@ -27,6 +27,15 @@ mod_survey_docs_ui <- function(id) {
       class = "center-tabs",
       tabsetPanel(
         id = ns("tabs"),
+        tabPanel("2026 Survey",
+                 value = "A",
+                 column(10,
+                        tabsetPanel(
+                          createTabPanelWithZoom("Page 1", "www/2026p1.png", 800, 600),
+                          createTabPanelWithZoom("Page 2", "www/2026p2.png", 800, 600),
+                          createTabPanelWithZoom("Page 3", "www/2026p3.png", 800, 600),
+                          createTabPanelWithZoom("Page 4", "www/2026p4.png", 800, 600)
+                        ))),
         tabPanel("2023 Survey",
                  value = "A",
                  column(10,
