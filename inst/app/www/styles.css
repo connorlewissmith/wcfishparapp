@@ -19,7 +19,7 @@ body, label, input, button, select {
 }
 h1, h2, h3, h4 { font-weight: 400; }
 
-#controls {
+.controls {
   /* Appearance */
   background-color: white;
   padding: 0 10px 10px 10px;
@@ -30,7 +30,7 @@ h1, h2, h3, h4 { font-weight: 400; }
   transition: opacity 500ms 1s;
 }
 
-#controls:hover {
+.controls:hover {
   /* Fade in while hovering */
   opacity: 0.75;
   transition-delay: 0;
@@ -95,4 +95,6 @@ h1, h2, h3, h4 { font-weight: 400; }
 .gif-center {
   margin: auto;
 }
+
+
 
