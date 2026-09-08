@@ -17,6 +17,12 @@
 mod_map_ui <- function(id) {
   ns <- NS(id)
   years <- rev(names(map_config()))
+  # Shown without the "Holland index: " prefix (the group heading already says
+  # it), but the underlying values keep it: the year lookups and the modal
+  # routing key on the full label.
+  question_choices_display <- lapply(question_choices_all, function(g) {
+    stats::setNames(g, sub("^Holland index: ", "", names(g)))
+  })
   tagList(
     div(
       class = "outer",
@@ -34,7 +40,7 @@ mod_map_ui <- function(id) {
           src = "www/noaalogo.png"
         ),
         span(tags$i(h5("These maps display the West Coast Fisheries Participation survey responses aggregated to the county level.
-                                        Medians are displayed for ordinal statement questions and yes-no questions are displayed as the percent responding yes.
+                                        Medians are displayed for ordinal statement questions, yes-no questions as the percent responding yes, and the Holland indices as county means on a pooled four-wave scale.
                                         Pick a question, then move between survey years to see how it changes. To use the map, you can click, drag,
                                                        and use the zoom. ")), style = "color:#045a8d"),
         downloadButton(ns("downloadData"), "Download CSV", style = "width: 100%; margin-bottom: 6px;"),
@@ -42,7 +48,7 @@ mod_map_ui <- function(id) {
         selectInput(
           inputId = ns("select"),
           label = "Select Survey Question",
-          choices = question_choices_all,
+          choices = question_choices_display,
           selected = "Respondent Count"
         ),
         radioButtons(
@@ -87,6 +93,32 @@ hover_label <- function(sf_obj, col, question) {
     paste0("<b>", d$NAME, " County</b><br/>", question, ": ", shown,
            "<br/><span style='color:#777'>", n, " respondents</span>"),
     htmltools::HTML
+  )
+}
+
+#' How a question label reads wherever it is shown to the user (hover, modal
+#' title, PNG export). The selector value keeps the "Holland index: " prefix
+#' because the lookups and routing key on it; only the display drops it.
+#'
+#' @noRd
+display_question <- function(label) {
+  sub("^Holland index: ", "", label)
+}
+
+#' Explanatory text for a Holland index, shown in place of a survey crop
+#'
+#' @noRd
+holland_index_note <- function(label) {
+  items <- switch(sub("^Holland index: ", "", label),
+    "Fisher identity" = "the five identity statements (being a fisherman, family tradition, fishing community, community tradition, respected occupation) plus the share of acquaintances in fishing",
+    "Social capital" = "years fishing, immediate and extended family in fishing, generations of fishermen, and the share of acquaintances in fishing",
+    "Job quality" = "the eleven non-monetary job satisfaction items (adventure, challenge, outdoors, camaraderie, being on the water, competing, doing something worthwhile, producing healthy food, skill against nature, being my own boss, own schedule)",
+    "Livelihood satisfaction" = "satisfaction with earnings, predictability of earnings, and job safety",
+    "its survey items")
+  div(
+    p("One of the four latent constructs from Holland, Abbott & Norman (2020, ", em("Ambio"), "), scored with the same measurement model fitted once to all four survey waves pooled, so a value means the same thing in every year. Units are standard deviations of the pooled respondent population (mean 0)."),
+    p("Built from ", items, "."),
+    p(style = "color:#777;", "The map shows the county mean of respondents' scores. With 4-20 respondents in most counties the standard error of that mean is roughly 0.25-0.5 SD, so treat differences between adjacent colour bands, and small year-to-year changes, with caution; the respondent count is in the hover label.")
   )
 }
 
@@ -168,8 +200,10 @@ mod_map_server <- function(id) {
     observeEvent(input$show_question, {
       im <- question_img()
       showModal(modalDialog(
-        title = input$select,
-        if (is.null(im)) {
+        title = display_question(input$select),
+        if (grepl("^Holland index", input$select)) {
+          holland_index_note(input$select)
+        } else if (is.null(im)) {
           div(style = "color:#777;", "No image of this question is available.")
         } else {
           div(style = "text-align:center;",
@@ -201,7 +235,9 @@ mod_map_server <- function(id) {
     # rather than implying nobody was surveyed there.
     output$map <- renderLeaflet({
       leaflet() %>%
-        addProviderTiles(providers$CartoDB.Positron) %>%
+        # CARTO watermarks keyless tiles "API KEY REQUIRED" since 2025; Esri's
+        # grey canvas is the closest keyless match to the old Positron look
+        addProviderTiles(providers$Esri.WorldGrayCanvas) %>%
         setView(lng = -130.252667, lat = 40.7850, zoom = 5) %>%
         addPolygons(
           data = counties_all_sf,
@@ -249,7 +285,9 @@ mod_map_server <- function(id) {
       tagList(
         cmp_msg,
         div(style = "font-size:85%; color:#555; margin-bottom:6px;",
-            paste0(input$year, " survey question ", qnum)),
+            if (grepl("^Holland index", input$select))
+              paste0(input$year, " county means of a latent index, not a single survey question")
+            else paste0(input$year, " survey question ", qnum)),
         if (!is.null(note)) {
           div(style = "background:#fcf3cf; border-left:4px solid #d4ac0d; padding:6px 8px; margin-bottom:8px; font-size:85%;",
               tags$b("Compare across years with care. "), note)
@@ -320,7 +358,7 @@ mod_map_server <- function(id) {
           mode = "diff", shp = shp, value = shp$diff, bins = brks,
           labels = NULL, palette = "RdBu", reverse = FALSE,
           legend = paste0("Change: ", input$year, " minus ", input$year_b),
-          title = input$select,
+          title = display_question(input$select),
           subtitle = paste0(input$year, " minus ", input$year_b,
                             " - West Coast Fisheries Participation Survey")))
         return(invisible(NULL))
@@ -368,6 +406,8 @@ mod_map_server <- function(id) {
         "Percent Responding NA"
       } else if (!is.na(cfg$legend$mean) && sel == cfg$legend$mean) {
         "Displaying Mean"
+      } else if (sel == "Hol") {
+        "County mean, SD units (pooled four-wave scale)"
       } else if (sel == "Res") {
         "Count"
       } else {
@@ -384,7 +424,7 @@ mod_map_server <- function(id) {
           weight = 0.0,
           opacity = 1,
           color = "white",
-          label = hover_label(cfg$sf, col, input$select),
+          label = hover_label(cfg$sf, col, display_question(input$select)),
           layerId = cfg$sf$NAME,
           highlight = highlightOptions(
             weight = 2,
@@ -412,7 +452,7 @@ mod_map_server <- function(id) {
       draw_state(list(
         mode = "single", shp = data, value = as.numeric(data[[col]]), bins = bins,
         labels = labels, palette = "YlOrRd", reverse = FALSE,
-        legend = react_leg, title = input$select,
+        legend = react_leg, title = display_question(input$select),
         subtitle = paste0(input$year, " West Coast Fisheries Participation Survey")))
 
       question_img(question_image(cfg, sel))

@@ -91,17 +91,20 @@ test_that("Test undisplay works", {
     '<p src="plop" style="display: none;">pouet</p>'
   )
 
+  # actionButton's own markup shifts between Shiny versions (newer ones wrap the
+  # label in <span class="action-label">), so assert what undisplay does to the
+  # tag rather than pinning Shiny's HTML.
   b <- shiny::actionButton("go_filter", "go")
   expect_s3_class(b, "shiny.tag")
-  expect_equal(
-    as.character(b),
-    '<button id="go_filter" type="button" class="btn btn-default action-button">go</button>'
-  )
+  expect_null(b$attribs$style)
+
   b_undisplay <- undisplay(b)
-  expect_s3_class(b, "shiny.tag")
+  expect_s3_class(b_undisplay, "shiny.tag")
+  expect_equal(b_undisplay$attribs$style, "display: none;")
+  # and changed nothing else
   expect_equal(
-    as.character(b_undisplay),
-    '<button id="go_filter" type="button" class="btn btn-default action-button" style="display: none;">go</button>'
+    sub(' style="display: none;"', "", as.character(b_undisplay), fixed = TRUE),
+    as.character(b)
   )
 })
 

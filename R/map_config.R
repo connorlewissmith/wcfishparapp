@@ -32,6 +32,7 @@ map_config <- function() {
 ,
       label_map =
         list(
+        "Hol" = list(bins = c(-3, -0.5, -0.2, 0.2, 0.5, 3), labels = c("below -0.5 SD", "-0.5 to -0.2 SD", "-0.2 to 0.2 SD", "0.2 to 0.5 SD", "above 0.5 SD")), # Holland indices: county MEAN on the pooled four-wave scale, shared across waves
         "Q1:" = list(bins = c(45, 50, 55, 60, 65, 70, 75), labels = c("45-50", "50-55", "55-60", "60-65", "65-70", "70-75")), # Top bin added, one county sits at 73.5
         "Q2:" = list(bins = c(0.5, 1.5, 2.5, 3.5, 4.5, 5.5), labels = Q2label),
         "Q3:" = list(bins = c(-0.5, 0.5, 1.5, 2.5, 3.5, 4.5, 5.5), labels = Q3label),
@@ -117,6 +118,7 @@ map_config <- function() {
 ,
       label_map =
         list(
+        "Hol" = list(bins = c(-3, -0.5, -0.2, 0.2, 0.5, 3), labels = c("below -0.5 SD", "-0.5 to -0.2 SD", "-0.2 to 0.2 SD", "0.2 to 0.5 SD", "above 0.5 SD")), # Holland indices: county MEAN on the pooled four-wave scale, shared across waves
         "Q1:" = list(bins = c(45, 50, 55, 60, 65, 70), labels = c("45-50", "50-55", "55-60", "60-65", "65-70")),
         "Q2:" = list(bins = c(0.5, 1.5, 2.5, 3.5, 4.5, 5.5), labels = Q2label_20),
         "Q3:" = list(bins = c(-0.5, 0.5, 1.5, 2.5, 3.5, 4.5, 5.5), labels = Q3label_20),
@@ -216,6 +218,7 @@ map_config <- function() {
 ,
       label_map =
         list(
+        "Hol" = list(bins = c(-3, -0.5, -0.2, 0.2, 0.5, 3), labels = c("below -0.5 SD", "-0.5 to -0.2 SD", "-0.2 to 0.2 SD", "0.2 to 0.5 SD", "above 0.5 SD")), # Holland indices: county MEAN on the pooled four-wave scale, shared across waves
         "Q1:" = list(bins = c(45, 50, 55, 60, 65, 70), labels = c("45-50", "50-55", "55-60", "60-65", "65-70")),
         "Q2:" = list(bins = c(0.5, 1.5, 2.5, 3.5, 4.5, 5.5), labels = Q2label_23),
         "Q3:" = list(bins = c(-0.5, 0.5, 1.5, 2.5, 3.5, 4.5, 5.5, 6.5), labels = Q3label_23),
@@ -314,6 +317,7 @@ map_config <- function() {
 ,
       label_map =
         list(
+        "Hol" = list(bins = c(-3, -0.5, -0.2, 0.2, 0.5, 3), labels = c("below -0.5 SD", "-0.5 to -0.2 SD", "-0.2 to 0.2 SD", "0.2 to 0.5 SD", "above 0.5 SD")), # Holland indices: county MEAN on the pooled four-wave scale, shared across waves
         "Q1:" = list(bins = c(45, 50, 55, 60, 65, 70, 75, 80), labels = c("45-50", "50-55", "55-60", "60-65", "65-70", "70-75", "75-80")),
         "Q2:" = list(bins = c(0.5, 1.5, 2.5, 3.5, 4.5, 5.5), labels = Q2label_26),
         "Q3:" = list(bins = c(-0.5, 0.5, 1.5, 2.5, 3.5, 4.5, 5.5), labels = Q3label_26),

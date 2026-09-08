@@ -44,6 +44,17 @@ mod_about_ui <- function(id) {
       )
     ),
     div(
+      class = "section-container",
+      h3("Holland Indices"),
+      p("Four of the map's questions are not single survey items but latent indices from Holland, Abbott & Norman (2020, ",
+        em("Ambio"), "): fisher identity, social capital, job quality and livelihood satisfaction. Each combines several survey items",
+        " through a measurement model that was fitted once to all four survey waves pooled, so the scale is the same in every year",
+        " and a change between years is a real change, not a re-standardisation. Values are in standard deviations of the pooled",
+        " respondent population (mean 0), and the map shows the county mean. Most counties have 4-20 respondents, which puts the",
+        " standard error of a county mean at roughly 0.25-0.5 SD, so small differences between counties or years should not be",
+        " over-read; the respondent count is shown in the hover label. The indices are re-estimated whenever the survey database changes.")
+    ),
+    div(
       class = "section-container",  # Added the section-container class
       h3("Acknowledgements"),
       p("We would like to thank every respondent for their time and effort. We credit the ",

@@ -17,65 +17,177 @@ knitr::opts_chunk$set(
 
 [![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 
-The goal of **`wcfishparapp`** is to provide an interactive visualization tool for exploring the West Coast fisheries participation survey data at the county level.
+**`wcfishparapp`** publishes the West Coast Fisheries Participation Survey as an
+interactive county-level map. It covers four waves — **2017, 2020, 2023 and
+2026** — and is built as a [golem](https://thinkr-open.github.io/golem/)
+structured R package that ships a Shiny application.
 
-## **Features**
-
--   Interactive county-level maps
-
--   Download compiled survey data
-
--   Familiarization with the survey tools
+The survey asks commercial fishermen in Washington, Oregon and California why
+they fish, and how shifting opportunity and profitability affect their
+communities. This app aggregates those responses to the county level.
 
 ## **Installation**
 
-To install the development version of **`wcfishparapp`**, you can run:
+``` r
+# install.packages("remotes")
+remotes::install_github("connorlewissmith/wcfishparapp")
+```
 
-    devtools::install_github("your_github_repo/wcfishparapp")
+## **How to run**
 
-## **How to Run**
+``` r
+library(wcfishparapp)
+run_app()
+```
 
-After installing the package, run:
+For development, `dev/run_dev.R` loads the package from source and launches the
+app without installing it. The repository root also carries an `app.R` entry
+point, which is what Posit Connect and shinyapps.io use.
 
-    library(wcfishparapp)
-    run_app()
+## **What the app does**
 
-## **Usage**
+### **Map tab** — `R/mod_map.R`, `R/map_config.R`
 
-#### Modules
+A single Leaflet choropleth drives every survey wave. The year is a control
+*inside* the map rather than a separate tab, so the question you picked stays
+selected as you move between years.
 
-##### **mod_map_2017.R, mod_map_2020.R, mod_map_2023.R**
+-   **Questions are listed by wording, not number.** The survey renumbers most
+    items between waves, so the wording is the stable key; the selected year's
+    own question number is shown underneath. 128 questions are offered, grouped
+    into 14 topics.
+-   **Values** are medians for ordinal statement questions, percent responding
+    yes for yes/no questions, and counts for respondent totals. The legend says
+    which.
+-   **Hovering** a county gives the value and the number of respondents it rests
+    on — a median from four responses looks identical to one from seventy
+    otherwise.
+-   **Clicking** a county opens census context: population, median income,
+    percent college graduate, unemployment, and the USDA rural–urban continuum
+    code.
+-   **Difference view** maps one year minus another. It refuses when a wave did
+    not ask the question, and warns when the two years are not measured the same
+    way.
+-   **Downloads**: the displayed data as CSV, and the map as a PNG. The PNG is a
+    server-side `ggplot2` re-render rather than a screenshot of the Leaflet
+    widget, so it does not need a headless browser on the deployment host. It
+    always shows the full coast, not the current pan and zoom.
+-   **"View the question as it was asked"** opens a crop of the printed survey
+    instrument in a modal.
 
--   **Purpose**: Describe what these modules are used for. Since they seem to perform similar functions for different years, you might explain what's different about each.
+`mod_map.R` holds the drawing logic once. `map_config.R` holds everything that
+differs between waves — the spatial data, question choices, bin edges, legend
+labels and instrument crops — as one list entry per year.
 
--   **Interaction**: Describe how users can interact with the Leaflet maps. For example, can they zoom, filter, click to get more details, etc.?
+> **Note for maintainers:** the label maps and image tables in `map_config.R`
+> are source text lifted verbatim from the old per-year modules, so their
+> references to the label vectors built in `06_prep_app_data.R` still resolve.
+> Do not replace them with evaluated values — that silently breaks the link to
+> the data pipeline.
 
--   **Data**: Briefly mention the data being visualized, and how it is processed before being used in these modules.
+### **Survey Documents tab** — `R/mod_survey_docs.R`
 
-------------------------------------------------------------------------
+The full printed instrument for each wave, four pages per year, with zoom
+controls. This is what lets a user check the exact wording behind a map.
 
-##### **mod_survey_docs.R**
+### **About tab** — `R/mod_about.R`
 
--   **Purpose**: Explain that this module is for viewing the actual survey documents.
+Background on the survey, how to navigate the app, and acknowledgements.
 
--   **Features**: Describe the features, such as zooming, downloading, etc.
+## **Data**
 
-------------------------------------------------------------------------
+The app reads a single prepared file, `data/fish_par_app_data.RData`, which
+holds the per-wave spatial and tabular objects (`county_17_sf`, `county_17_df`,
+and so on), the question lookups, the legend label vectors, and
+`counties_all_sf`.
 
-##### **mod_about.R**
+That file is **built elsewhere** — by `code/cleaning/06_prep_app_data.R` in the
+**`fish_par_survey`** repository — and copied here. There is no automated link.
+If the question sets or labels change upstream, copy the file across.
 
--   **Purpose**: Explain that this module provides general information about the survey.
+Since 2026-08-28 the map also carries the four **Holland indices** (fisher
+identity, social capital, job quality, livelihood satisfaction — Holland, Abbott &
+Norman 2020). They are not survey items: `fish_par_new/holland_ambio_2/16_export_indices.R`
+scores every respondent on the measurement model fitted once to all four waves
+pooled and writes `holland_indices.csv` into `fish_par_survey/data/raw/confidential/`;
+each wave's cleaner joins it (`code/helpers/attach_holland.R`) and aggregates the
+county **mean**. They share one bin scheme across waves (`"Hol"` in `map_config.R`),
+a legend that says so, and a text panel in place of the survey crop
+(`holland_index_note()`). Refresh order after any change to the survey database:
+rebuild the database → refit/export in `holland_ambio_2` → `01`–`06` here → copy.
 
--   **Content**: A brief outline of the information that users can expect to find in this module.
+Two filters matter for reading the map:
 
-## **Screenshots**
+-   Counties with **three or fewer respondents are dropped** during cleaning.
+    The map still draws all 133 west coast counties underneath, labelled
+    *"fewer than 4 respondents, not reported"* — genuine zeros and suppressed
+    small samples are not distinguishable, so the map does not claim they are.
+-   The **west coast restriction** is applied separately, in
+    `code/helpers/assign_county_sf.R`. Across all four waves exactly one county outside
+    CA/OR/WA clears the reporting threshold, so the restriction costs almost
+    nothing.
 
-(Include some screenshots or GIFs)
+## **Development**
 
-## **Contributing**
+| Script | Purpose |
+| --- | --- |
+| `dev/01_start.R` | One-time golem setup |
+| `dev/02_dev.R` | Adding modules, functions and dependencies |
+| `dev/03_deploy.R` | Checks and deployment |
+| `dev/run_dev.R` | Launch the app from source |
+| `dev/04_snapshot_map.R` | Rendering snapshot harness |
 
-We welcome contributions! See [CONTRIBUTING.md](https://chat.openai.com/c/CONTRIBUTING.md) for details.
+### **Tests**
+
+``` r
+devtools::test()
+```
+
+`tests/testthat/test-mod_map.R` deliberately locks in several defects that were
+once live — the half-point bin rule and the legend-to-band alignment are
+regression guards, not style checks.
+
+### **Snapshot harness**
+
+`dev/04_snapshot_map.R` captures what the map actually renders — bins, legend
+title, legend labels and instrument image — for all 297 question-and-wave
+combinations. Use it around any refactor of the map:
+
+``` sh
+Rscript dev/04_snapshot_map.R before.rds
+# ... make changes ...
+Rscript dev/04_snapshot_map.R after.rds
+Rscript dev/04_snapshot_map.R before.rds after.rds   # compare
+```
+
+A clean refactor produces no differences at all. The harness shims `colorBin`
+and `addLegend` in the package's imports environment so the values come from the
+module itself rather than from a reimplementation of its logic.
+
+## **Deployment**
+
+`manifest.json` describes the deployment for git-backed Posit Connect and is
+**generated, not hand-edited**:
+
+``` r
+rsconnect::writeManifest()
+```
+
+Regenerate it whenever files are added or removed from `R/`, or the dependency
+set changes. It currently pins **R 4.6.0** — the deployment host must have a
+matching version available or package restore will fail.
+
+## **Related repositories**
+
+| Repository | Contents |
+| --- | --- |
+| `fish_par_survey` | Cleaning and preparation pipeline; source of the app data |
+| `fish_par_2017_viewer` | Original 2017 viewer (Dan Holland) |
+| `fish_par_2020_viewer` | 2020 viewer |
+| `fish_par_2023_viewer` | 2023 viewer |
+| `fish_par_2026_viewer` | 2026 viewer |
 
 ## **License**
 
-This project is licensed under the MIT License - see the [LICENSE](https://chat.openai.com/c/LICENSE) file for details.
+MIT — see [LICENSE](LICENSE.md). Contributors are expected to follow the
+[Code of Conduct](CODE_OF_CONDUCT.md).

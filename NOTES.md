@@ -5,6 +5,23 @@ adding the 2026 wave and consolidating the map.
 
 ---
 
+## Data refresh 2026-08-28
+
+`data/fish_par_app_data.RData` rebuilt with the 14 late 2026 paper returns
+(`fish_par_survey` now reads `fish_par_26_with_late.xlsx`; 2026 n = 940). 12 of the
+14 land on the map (860 respondents across the same 44 counties; no county crossed
+the 4-respondent threshold). `dev/04_snapshot_map.R` shows no change because it
+snapshots bins/legends/crops, not county values. Needs a redeploy to Connect.
+
+## Holland indices added 2026-08-28
+
+Four new map questions under the group "Holland Indices": county means of the
+pooled four-wave latent scores (see README "Data"). Shared bins ±0.2/±0.5 SD;
+legend "County mean, SD units (pooled four-wave scale)"; modal shows a text
+description instead of a crop; About tab has a section. Snapshot harness
+now 313 rows (297 + 4 indices x 4 waves). `tests/testthat/test-holland_index_note.R`
+covers the routing. Needs a Connect redeploy.
+
 ## Open items, roughly in priority order
 
 ### 1. Confirm the R version on the deployment server — possible live breakage
