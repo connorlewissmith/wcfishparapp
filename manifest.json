@@ -3496,8 +3496,8 @@
         "Package": "terra",
         "Type": "Package",
         "Title": "Spatial Data Analysis",
-        "Version": "1.9-34",
-        "Date": "2026-06-18",
+        "Version": "1.9-46",
+        "Date": "2026-08-21",
         "Depends": "R (>= 3.5.0), methods",
         "Suggests": "parallel, tinytest, ncdf4, sf (>= 0.9-8), igraph, deldir,\nXML, leaflet (>= 2.2.1), htmlwidgets, future, future.apply",
         "LinkingTo": "Rcpp",
@@ -3511,13 +3511,13 @@
         "URL": "https://rspatial.org/, https://rspatial.github.io/terra/",
         "BugReports": "https://github.com/rspatial/terra/issues",
         "LazyLoad": "yes",
-        "Authors@R": "c(\n\tperson(\"Robert J.\", \"Hijmans\", role=c(\"cre\", \"aut\"),  \n\t\t\temail=\"r.hijmans@gmail.com\", comment=c(ORCID=\"0000-0001-5872-2872\")),\t\t\t\n    person(\"Andrew\", \"Brown\", role=\"aut\", comment=c(ORCID=\"0000-0002-4565-533X\")),\n    person(\"Márcia\", \"Barbosa\", role=\"aut\", comment=c(ORCID=\"0000-0001-8972-7713\")),\n    person(\"Krzysztof\", \"Dyba\", role=\"ctb\", comment=c(ORCID=\"0000-0002-8614-3816\")),\n    person(\"Roger\", \"Bivand\", role=\"ctb\", comment=c(ORCID=\"0000-0003-2392-6140\")),\n    person(\"Michael\", \"Chirico\", role=\"ctb\", comment=c(ORCID=\"0000-0003-0787-087X\")),\n    person(\"Emanuele\", \"Cordano\", role=\"ctb\",comment=c(ORCID=\"0000-0002-3508-5898\")),\n    person(\"Edzer\", \"Pebesma\", role=\"ctb\", comment=c(ORCID=\"0000-0001-8049-7069\")),\n    person(\"Barry\", \"Rowlingson\", role=\"ctb\", comment=c(ORCID=\"0000-0002-8586-6625\")),\n    person(\"Michael D.\", \"Sumner\", role=\"ctb\", comment=c(ORCID=\"0000-0002-2471-7511\")))",
+        "Authors@R": "c(\n\tperson(\"Robert J.\", \"Hijmans\", role=c(\"cre\", \"aut\"),  \n\t\t\temail=\"r.hijmans@gmail.com\", comment=c(ORCID=\"0000-0001-5872-2872\")),\t\t\t\n    person(\"Andrew\", \"Brown\", role=\"aut\", comment=c(ORCID=\"0000-0002-4565-533X\")),\n    person(c(\"A.\", \"Márcia\"), \"Barbosa\", role=\"aut\", comment=c(ORCID=\"0000-0001-8972-7713\")),\n    person(\"Emanuele\", \"Cordano\", role=\"aut\",comment=c(ORCID=\"0000-0002-3508-5898\")),\n    person(\"Krzysztof\", \"Dyba\", role=\"aut\", comment=c(ORCID=\"0000-0002-8614-3816\")),\n    person(\"Roger\", \"Bivand\", role=\"ctb\", comment=c(ORCID=\"0000-0003-2392-6140\")),\n    person(\"Michael\", \"Chirico\", role=\"ctb\", comment=c(ORCID=\"0000-0003-0787-087X\")),\n    person(\"Edzer\", \"Pebesma\", role=\"ctb\", comment=c(ORCID=\"0000-0001-8049-7069\")),\n    person(\"Barry\", \"Rowlingson\", role=\"ctb\", comment=c(ORCID=\"0000-0002-8586-6625\")),\n    person(\"Michael D.\", \"Sumner\", role=\"ctb\", comment=c(ORCID=\"0000-0002-2471-7511\")))",
         "NeedsCompilation": "yes",
-        "Packaged": "2026-06-19 03:43:47 UTC; rhijm",
-        "Author": "Robert J. Hijmans [cre, aut] (ORCID:\n    <https://orcid.org/0000-0001-5872-2872>),\n  Andrew Brown [aut] (ORCID: <https://orcid.org/0000-0002-4565-533X>),\n  Márcia Barbosa [aut] (ORCID: <https://orcid.org/0000-0001-8972-7713>),\n  Krzysztof Dyba [ctb] (ORCID: <https://orcid.org/0000-0002-8614-3816>),\n  Roger Bivand [ctb] (ORCID: <https://orcid.org/0000-0003-2392-6140>),\n  Michael Chirico [ctb] (ORCID: <https://orcid.org/0000-0003-0787-087X>),\n  Emanuele Cordano [ctb] (ORCID: <https://orcid.org/0000-0002-3508-5898>),\n  Edzer Pebesma [ctb] (ORCID: <https://orcid.org/0000-0001-8049-7069>),\n  Barry Rowlingson [ctb] (ORCID: <https://orcid.org/0000-0002-8586-6625>),\n  Michael D. Sumner [ctb] (ORCID:\n    <https://orcid.org/0000-0002-2471-7511>)",
+        "Packaged": "2026-08-21 08:01:12 UTC; rhijm",
+        "Author": "Robert J. Hijmans [cre, aut] (ORCID:\n    <https://orcid.org/0000-0001-5872-2872>),\n  Andrew Brown [aut] (ORCID: <https://orcid.org/0000-0002-4565-533X>),\n  A. Márcia Barbosa [aut] (ORCID:\n    <https://orcid.org/0000-0001-8972-7713>),\n  Emanuele Cordano [aut] (ORCID: <https://orcid.org/0000-0002-3508-5898>),\n  Krzysztof Dyba [aut] (ORCID: <https://orcid.org/0000-0002-8614-3816>),\n  Roger Bivand [ctb] (ORCID: <https://orcid.org/0000-0003-2392-6140>),\n  Michael Chirico [ctb] (ORCID: <https://orcid.org/0000-0003-0787-087X>),\n  Edzer Pebesma [ctb] (ORCID: <https://orcid.org/0000-0001-8049-7069>),\n  Barry Rowlingson [ctb] (ORCID: <https://orcid.org/0000-0002-8586-6625>),\n  Michael D. Sumner [ctb] (ORCID:\n    <https://orcid.org/0000-0002-2471-7511>)",
         "Repository": "CRAN",
-        "Date/Publication": "2026-06-19 15:10:02 UTC",
-        "Built": "R 4.6.0; x86_64-apple-darwin20; 2026-06-19 16:37:23 UTC; unix",
+        "Date/Publication": "2026-08-22 16:30:02 UTC",
+        "Built": "R 4.6.0; x86_64-apple-darwin20; 2026-08-22 19:07:24 UTC; unix",
         "Archs": "terra.so.dSYM"
       }
     },
@@ -4188,8 +4188,11 @@
     }
   },
   "files": {
+    ".claude/settings.local.json": {
+      "checksum": "918d53f968a3d1a64dd19328a2db8e82"
+    },
     ".Rbuildignore": {
-      "checksum": "2f551a99e7c758b10918817e1297c41b"
+      "checksum": "126132b410866d5d47bf549613577839"
     },
     "app.R": {
       "checksum": "d16610f874c0e0a759bb8998392412f9"
@@ -4198,7 +4201,7 @@
       "checksum": "2b4714757349ec45d76c10b3f3ee6db6"
     },
     "data/fish_par_app_data.RData": {
-      "checksum": "e4f8b89dd12b651cde128e0420934f25"
+      "checksum": "916ecd40b6d783deeacb30765d41219c"
     },
     "DESCRIPTION": {
       "checksum": "d14ca1e1e17e3ef611e795af79383cb9"
@@ -4211,6 +4214,9 @@
     },
     "dev/03_deploy.R": {
       "checksum": "f54af144d58dcada5168b7f7cf812f5b"
+    },
+    "dev/04_snapshot_map.R": {
+      "checksum": "8b08424983b87103e38db246c73e96b6"
     },
     "dev/run_dev.R": {
       "checksum": "6f097f9a1937149947b40a3022df9359"
@@ -4554,6 +4560,9 @@
     "NEWS.md": {
       "checksum": "2f3dad778d42453468cf32ee1ab98d68"
     },
+    "NOTES.md": {
+      "checksum": "038bbccd249ad57f99308982be0c17c0"
+    },
     "R/_disable_autoload.R": {
       "checksum": "1178c335d6c11555fd1c4ec6098dfee6"
     },
@@ -4573,13 +4582,13 @@
       "checksum": "33321781a1c428ecde176940589b17e2"
     },
     "R/map_config.R": {
-      "checksum": "cb33db981111483664ad3e164b23da93"
+      "checksum": "46556a0ce92fa1b6526e6c12f9752657"
     },
     "R/mod_about.R": {
-      "checksum": "34ffc1218fdb661fe617a2b4ea44071a"
+      "checksum": "e4e54d132e0c93e7b933ae45069a0681"
     },
     "R/mod_map.R": {
-      "checksum": "bf743b489395c61c3dbab78d2c5bcfd4"
+      "checksum": "149df85b80e2042ac815de3e2f5cd836"
     },
     "R/mod_survey_docs.R": {
       "checksum": "3c0ac609bf906cc9a565697b40f1577a"
@@ -4591,10 +4600,13 @@
       "checksum": "b56ff2b193ecba52f9ec7f3b10cca008"
     },
     "README.md": {
-      "checksum": "63b6554820aeb24021bc574ba8087d33"
+      "checksum": "b3fedc2e93af83ec8acb46e904894c5e"
     },
     "README.Rmd": {
-      "checksum": "da10f9395e57d38618c31f808fef185e"
+      "checksum": "9d2088189c1b252029a0fe340a54990f"
+    },
+    "rstudio-connect.300.0.7156.packrat_restore.tIcJ1UypJTr2wZ7l.log": {
+      "checksum": "7feaac58518f7ebc8295a2a84027d548"
     },
     "tests/testthat.R": {
       "checksum": "dd85ed26554d7fde7f6e51d83d012b6c"
@@ -4603,25 +4615,16 @@
       "checksum": "3ed6ce54be2b28b9455f84914c16012a"
     },
     "tests/testthat/test-golem_utils_ui.R": {
-      "checksum": "2ef87c1229b3c6053ff45e236349c70f"
+      "checksum": "c6a1796677ca0eadce2e967e0f7a4b30"
+    },
+    "tests/testthat/test-holland_index_note.R": {
+      "checksum": "03baba7cc6892beb60134553331dcf5b"
     },
     "tests/testthat/test-mod_about.R": {
       "checksum": "3f2ba5720c057a733cc07d80b6b79dcb"
     },
-    "tests/testthat/test-mod_map_2017.R": {
-      "checksum": "8a5490a23d344f8c0f065e1be2ce093b"
-    },
-    "tests/testthat/test-mod_map_2020.R": {
-      "checksum": "93f6ff050ad13c266432160a00677537"
-    },
-    "tests/testthat/test-mod_map_2023.R": {
-      "checksum": "c856df227a14ba06168ee867cedecc9e"
-    },
-    "tests/testthat/test-mod_name_of_module1.R": {
-      "checksum": "ace1d8e5957940341c73ce5d11babf08"
-    },
-    "tests/testthat/test-mod_name_of_module2.R": {
-      "checksum": "413053290062d997f2d4a6ac5b60c007"
+    "tests/testthat/test-mod_map.R": {
+      "checksum": "a363569862ae5086584cf634f01f57ad"
     },
     "tests/testthat/test-mod_survey_docs.R": {
       "checksum": "6cb5a002facc901f9dbbf926d08b8c6c"

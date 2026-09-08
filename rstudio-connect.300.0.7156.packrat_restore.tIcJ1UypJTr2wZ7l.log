@@ -1,0 +1,263 @@
+2026/09/08 17:55:40.046193035 [connect-session] Connect Session v2026.03.1
+2026/09/08 17:55:40.046529061 [connect-session] Content GUID: 7807d5a5-2d76-4db1-b2a7-7ca1ee3f46ca
+2026/09/08 17:55:40.046546147 [connect-session] Content ID: 300
+2026/09/08 17:55:40.046552621 [connect-session] Bundle ID: 7156
+2026/09/08 17:55:40.046559392 [connect-session] Job Key: tIcJ1UypJTr2wZ7l
+2026/09/08 17:55:40.046565757 [connect-session] WARNING: Publishing with rsconnect or Publisher, upgrade for the generated manifest.json to follow version constraints best practices.
+2026/09/08 17:55:40.046571536 [connect-session] For more details on version matching, see https://docs.posit.co/connect/admin/r/#r-version-matching
+2026/09/08 17:55:40.046581164 [connect-session] Warning: Failed to create Connect client: "CONNECT_SERVER" is missing or empty
+2026/09/08 17:55:40.046589568 [connect-session] Warning: Workload identities are disabled
+2026/09/08 17:55:40.362593744 Running on host: ip-137-75-93-13
+2026/09/08 17:55:40.362618116 Process ID: 1051192
+2026/09/08 17:55:40.372289827 Linux distribution: Ubuntu 22.04.5 LTS (jammy)
+2026/09/08 17:55:40.375113442 Running as user: uid=998(rstudio-connect) gid=999(rstudio-connect) groups=999(rstudio-connect)
+2026/09/08 17:55:40.375127900 Connect version: 2026.03.1
+2026/09/08 17:55:40.375232944 LANG: en_US.UTF-8
+2026/09/08 17:55:40.375238680 Working directory: /opt/rstudio-connect/mnt/app
+2026/09/08 17:55:40.375617890 Using R 4.6.0
+2026/09/08 17:55:40.375627526 R.home(): /opt/R/4.6.0/lib/R
+2026/09/08 17:55:40.376678162 Using user agent string: 'RStudio R (4.6.0 x86_64-pc-linux-gnu x86_64 linux-gnu)' 
+2026/09/08 17:55:40.377060729 Configuring packrat to use available credentials for private repository access.
+2026/09/08 17:55:40.377411475 # Validating R library read / write permissions --------------------------------
+2026/09/08 17:55:40.377962492 Using R library for packrat bootstrap: /opt/rstudio-connect/mnt/R/4.6.0
+2026/09/08 17:55:40.378178990 # Validating managed packrat installation --------------------------------------
+2026/09/08 17:55:40.378437087 Vendored packrat archive: /opt/rstudio-connect/ext/R/packrat_0.9.3.9000_228b85de0698ecc80544e1d5bcc2fc3ad2b4ac03.tar.gz
+2026/09/08 17:55:40.394588753 Vendored packrat SHA: 228b85de0698ecc80544e1d5bcc2fc3ad2b4ac03
+2026/09/08 17:55:40.396862318 Managed packrat SHA:  228b85de0698ecc80544e1d5bcc2fc3ad2b4ac03
+2026/09/08 17:55:40.397807602 Managed packrat version: 0.9.3.9000
+2026/09/08 17:55:40.398276803 Managed packrat is up-to-date.
+2026/09/08 17:55:40.398357492 # Validating packrat cache read / write permissions ----------------------------
+2026/09/08 17:55:40.791635497 Using packrat cache directory: /opt/rstudio-connect/mnt/packrat/4.6.0
+2026/09/08 17:55:40.791711850 # Setting packrat options and preparing lockfile -------------------------------
+2026/09/08 17:55:41.066484752 Audited package hashes with local packrat installation.
+2026/09/08 17:55:41.068238803 # Resolving R package repositories ---------------------------------------------
+2026/09/08 17:55:41.119757849 Received repositories from Connect's configuration:
+2026/09/08 17:55:41.119777544 - CRAN = "https://packagemanager.posit.co/cran/__linux__/jammy/latest%22
+2026/09/08 17:55:41.158709318 Received repositories from published content:
+2026/09/08 17:55:41.158728043 - CRAN = "https://cloud.r-project.org"
+2026/09/08 17:55:41.257740808 Combining repositories from configuration and content.
+2026/09/08 17:55:41.257820619 Packages will be installed using the following repositories:
+2026/09/08 17:55:41.257843295 - CRAN = "https://packagemanager.posit.co/cran/__linux__/jammy/latest%22
+2026/09/08 17:55:41.257847867 - CRAN.1 = "https://cloud.r-project.org"
+2026/09/08 17:55:41.293483948 # Installing required R packages with `packrat::restore()` ---------------------
+2026/09/08 17:55:41.674529819 Installing DBI (1.3.0) ... 
+2026/09/08 17:55:41.677397161 	OK (symlinked cache)
+2026/09/08 17:55:41.677546344 Installing KernSmooth (2.23-26) ... 
+2026/09/08 17:55:41.678522547 	OK (symlinked cache)
+2026/09/08 17:55:41.678677055 Installing MASS (7.3-65) ... 
+2026/09/08 17:55:41.679539173 	OK (symlinked cache)
+2026/09/08 17:55:41.679682707 Installing R6 (2.6.1) ... 
+2026/09/08 17:55:41.680497276 	OK (symlinked cache)
+2026/09/08 17:55:41.680637424 Installing RColorBrewer (1.1-3) ... 
+2026/09/08 17:55:41.681599796 	OK (symlinked cache)
+2026/09/08 17:55:41.681610329 Installing Rcpp (1.1.1-1.1) ... 
+2026/09/08 17:55:41.682845229 	OK (symlinked cache)
+2026/09/08 17:55:41.683254677 Installing S7 (0.2.2) ... 
+2026/09/08 17:55:41.684170457 	OK (symlinked cache)
+2026/09/08 17:55:41.684336562 Installing base64enc (0.1-6) ... 
+2026/09/08 17:55:41.685215034 	OK (symlinked cache)
+2026/09/08 17:55:41.685367149 Installing brew (1.0-10) ... 
+2026/09/08 17:55:41.686196175 	OK (symlinked cache)
+2026/09/08 17:55:41.686337136 Installing brio (1.1.5) ... 
+2026/09/08 17:55:41.687120348 	OK (symlinked cache)
+2026/09/08 17:55:41.687257020 Installing cli (3.6.6) ... 
+2026/09/08 17:55:41.688024054 	OK (symlinked cache)
+2026/09/08 17:55:41.688160845 Installing clipr (0.8.1) ... 
+2026/09/08 17:55:41.688916244 	OK (symlinked cache)
+2026/09/08 17:55:41.689058295 Installing commonmark (2.0.0) ... 
+2026/09/08 17:55:41.689902909 	OK (symlinked cache)
+2026/09/08 17:55:41.690043816 Installing cpp11 (0.5.5) ... 
+2026/09/08 17:55:41.691065203 	OK (symlinked cache)
+2026/09/08 17:55:41.691198154 Installing crayon (1.5.3) ... 
+2026/09/08 17:55:41.691914481 	OK (symlinked cache)
+2026/09/08 17:55:41.692039130 Installing curl (7.1.0) ... 
+2026/09/08 17:55:41.692822377 	OK (symlinked cache)
+2026/09/08 17:55:41.693000591 Installing digest (0.6.39) ... 
+2026/09/08 17:55:41.694096997 	OK (symlinked cache)
+2026/09/08 17:55:41.694239858 Installing evaluate (1.0.5) ... 
+2026/09/08 17:55:41.694999395 	OK (symlinked cache)
+2026/09/08 17:55:41.695246930 Installing fansi (1.0.7) ... 
+2026/09/08 17:55:41.696062694 	OK (symlinked cache)
+2026/09/08 17:55:41.696189787 Installing farver (2.1.2) ... 
+2026/09/08 17:55:41.696945086 	OK (symlinked cache)
+2026/09/08 17:55:41.697114668 Installing fastmap (1.2.0) ... 
+2026/09/08 17:55:41.697929502 	OK (symlinked cache)
+2026/09/08 17:55:41.698111236 Installing fs (2.1.0) ... 
+2026/09/08 17:55:41.698923558 	OK (symlinked cache)
+2026/09/08 17:55:41.699058918 Installing generics (0.1.4) ... 
+2026/09/08 17:55:41.699806584 	OK (symlinked cache)
+2026/09/08 17:55:41.699933963 Installing gitcreds (0.1.2) ... 
+2026/09/08 17:55:41.700739264 	OK (symlinked cache)
+2026/09/08 17:55:41.700809728 Installing glue (1.8.1) ... 
+2026/09/08 17:55:41.701586411 	OK (symlinked cache)
+2026/09/08 17:55:41.701715489 Installing ini (0.3.1) ... 
+2026/09/08 17:55:41.702502290 	OK (symlinked cache)
+2026/09/08 17:55:41.702617343 Installing jsonlite (2.0.0) ... 
+2026/09/08 17:55:41.703370391 	OK (symlinked cache)
+2026/09/08 17:55:41.703467320 Installing labeling (0.4.3) ... 
+2026/09/08 17:55:41.704195216 	OK (symlinked cache)
+2026/09/08 17:55:41.704297301 Installing lattice (0.22-9) ... 
+2026/09/08 17:55:41.705075419 	OK (symlinked cache)
+2026/09/08 17:55:41.705228595 Installing magrittr (2.0.5) ... 
+2026/09/08 17:55:41.705923270 	OK (symlinked cache)
+2026/09/08 17:55:41.706046067 Installing mime (0.13) ... 
+2026/09/08 17:55:41.706813424 	OK (symlinked cache)
+2026/09/08 17:55:41.706952419 Installing otel (0.2.0) ... 
+2026/09/08 17:55:41.707673282 	OK (symlinked cache)
+2026/09/08 17:55:41.707793079 Installing packrat (0.9.3) ... 
+2026/09/08 17:55:41.708499746 	OK (symlinked cache)
+2026/09/08 17:55:41.708619709 Installing pak (0.10.0) ... 
+2026/09/08 17:55:41.709363265 	OK (symlinked cache)
+2026/09/08 17:55:41.709507088 Installing pkgconfig (2.0.3) ... 
+2026/09/08 17:55:41.710226726 	OK (symlinked cache)
+2026/09/08 17:55:41.710344598 Installing png (0.1-9) ... 
+2026/09/08 17:55:41.711093614 	OK (symlinked cache)
+2026/09/08 17:55:41.711200134 Installing praise (1.0.0) ... 
+2026/09/08 17:55:41.711917304 	OK (symlinked cache)
+2026/09/08 17:55:41.712038764 Installing prettyunits (1.2.0) ... 
+2026/09/08 17:55:41.712751464 	OK (symlinked cache)
+2026/09/08 17:55:41.712878754 Installing proxy (0.4-29) ... 
+2026/09/08 17:55:41.713631839 	OK (symlinked cache)
+2026/09/08 17:55:41.713756043 Installing ps (1.9.3) ... 
+2026/09/08 17:55:41.714510396 	OK (symlinked cache)
+2026/09/08 17:55:41.714637077 Installing rappdirs (0.3.4) ... 
+2026/09/08 17:55:41.715355186 	OK (symlinked cache)
+2026/09/08 17:55:41.715482046 Installing rematch (2.0.0) ... 
+2026/09/08 17:55:41.716188442 	OK (symlinked cache)
+2026/09/08 17:55:41.716306325 Installing renv (1.2.3) ... 
+2026/09/08 17:55:41.717016100 	OK (symlinked cache)
+2026/09/08 17:55:41.717142356 Installing rlang (1.2.0) ... 
+2026/09/08 17:55:41.717877880 	OK (symlinked cache)
+2026/09/08 17:55:41.718027165 Installing rprojroot (2.1.1) ... 
+2026/09/08 17:55:41.718765077 	OK (symlinked cache)
+2026/09/08 17:55:41.718913148 Installing rstudioapi (0.19.0) ... 
+2026/09/08 17:55:41.719619090 	OK (symlinked cache)
+2026/09/08 17:55:41.719754333 Installing sourcetools (0.1.7-2) ... 
+2026/09/08 17:55:41.720442662 	OK (symlinked cache)
+2026/09/08 17:55:41.720561565 Installing stringi (1.8.7) ... 
+2026/09/08 17:55:41.721290350 	OK (symlinked cache)
+2026/09/08 17:55:41.721410233 Installing sys (3.4.3) ... 
+2026/09/08 17:55:41.722120200 	OK (symlinked cache)
+2026/09/08 17:55:41.722262976 Installing utf8 (1.2.6) ... 
+2026/09/08 17:55:41.722956704 	OK (symlinked cache)
+2026/09/08 17:55:41.723092742 Installing uuid (1.2-2) ... 
+2026/09/08 17:55:41.723800952 	OK (symlinked cache)
+2026/09/08 17:55:41.723922805 Installing viridisLite (0.4.3) ... 
+2026/09/08 17:55:41.724622558 	OK (symlinked cache)
+2026/09/08 17:55:41.724738708 Installing whisker (0.4.1) ... 
+2026/09/08 17:55:41.725483904 	OK (symlinked cache)
+2026/09/08 17:55:41.725614875 Installing withr (3.0.3) ... 
+2026/09/08 17:55:41.726362600 	OK (symlinked cache)
+2026/09/08 17:55:41.726497854 Installing wk (0.9.5) ... 
+2026/09/08 17:55:41.727227986 	OK (symlinked cache)
+2026/09/08 17:55:41.727352258 Installing xfun (0.59) ... 
+2026/09/08 17:55:41.728063402 	OK (symlinked cache)
+2026/09/08 17:55:41.728207317 Installing xtable (1.8-8) ... 
+2026/09/08 17:55:41.728950646 	OK (symlinked cache)
+2026/09/08 17:55:41.729068195 Installing yaml (2.3.12) ... 
+2026/09/08 17:55:41.729844356 	OK (symlinked cache)
+2026/09/08 17:55:41.729951788 Installing class (7.3-23) ... 
+2026/09/08 17:55:41.730730392 	OK (symlinked cache)
+2026/09/08 17:55:41.730836058 Installing RcppTOML (0.2.3) ... 
+2026/09/08 17:55:41.731588509 	OK (symlinked cache)
+2026/09/08 17:55:41.731681013 Installing terra (1.9-34) ... 
+2026/09/08 17:55:42.062182633 curl: HTTP 200 https://packagemanager.posit.co/cran/__linux__/jammy/latest/src/contrib/PACKAGES.rds
+2026/09/08 17:55:42.387693869 curl: HTTP 200 https://cloud.r-project.org/src/contrib/PACKAGES.rds
+2026/09/08 17:55:43.690306968 curl: HTTP 200 https://rspm-sync.rstudio.com/v4/1/packages/6bc69994edccb0cf3f7d7a13dacdf5aca5ee8b3f5091e4539deea660abd845ea.tar.gz
+2026/09/08 17:58:55.737863378 [1] "Command failed (1)\n\nFailed to run system command:\n\n\t'/opt/R/4.6.0/lib/R/bin/R' --vanilla CMD INSTALL --preclean '/opt/rstudio-connect/mnt/tmp/Rtmpf7KEy1/packrat-install-100a386294c96e/terra' --library='/opt/rstudio-connect/mnt/app/packrat/lib/x86_64-pc-linux-gnu/4.6.0' --install-tests --no-docs --no-multiarch --no-demo \n\nThe command failed with output:\n* installing *source* package ‘terra’ ...\n** this is package ‘terra’ version ‘1.9-34’\n** package ‘terra’ successfully unpacked and MD5 sums checked\n** using staged installation\nconfigure: CC: gcc\nconfigure: CXX: g++ -std=gnu++20\nchecking for gdal-config... /usr/bin/gdal-config\nchecking gdal-config usability... yes\nconfigure: GDAL: 3.4.1\nchecking GDAL version >= 2.0.1... yes\nchecking for gcc... gcc\nchecking whether the C compiler works... yes\nchecking for C compiler default output file name... a.out\nchecking for suffix of executables... \nchecking whether we are cross compiling... no\nchecking for suffix of object files... o\nchecking whether the compiler supports GNU C... yes\nchecking whether gcc accepts -g... yes\nchecking for gcc option to enable C11 features... none needed\nchecking for stdio.h... yes\nchecking for stdlib.h... yes\nchecking for string.h... yes\nchecking for inttypes.h... yes\nchecking for stdint.h... yes\nchecking for strings.h... yes\nchecking for sys/stat.h... yes\nchecking for sys/types.h... yes\nchecking for unistd.h... yes\nchecking for gdal.h... yes\nchecking GDAL: linking with --libs only... yes\nchecking GDAL: /usr/share/gdal/pcs.csv readable... no\nchecking GDAL: checking whether PROJ is available for linking:... yes\nchecking GDAL: checking whether PROJ is available for running:... yes\nconfigure: GDAL: 3.4.1\nconfigure: pkg-config proj exists, will use it\nconfigure: using proj.h.\nconfigure: PROJ: 8.2.1\nchecking PROJ: checking whether PROJ and sqlite3 are available for linking:... yes\nchecking for geos-config... /usr/bin/geos-config\nchecking geos-config usability... yes\nconfigure: GEOS: 3.10.2\nchecking GEOS version >= 3.4.0... yes\nchecking for geos_c.h... yes\nchecking geos: linking with -L/usr/lib/x86_64-linux-gnu -lgeos_c... yes\nchecking Intel TBB exists:... no\nconfigure: WARNING: to support parallel processing install TBB devel or update the PKG_CONFIG_PATH environment variable\nconfigure: Package CPP flags:   -DHAVE_PROJ_H -I/usr/include/gdal -I/usr/include  \nconfigure: Package LIBS:  -lproj   -L/usr/lib -lgdal -L/usr/lib/x86_64-linux-gnu -lgeos_c\nconfigure: creating ./config.status\nconfig.status: creating src/Makevars\n** libs\nspecified C++17\nusing C compiler: ‘gcc (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0’\nusing C++ compiler: ‘g++ (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0’\nusing C++17\ng++ -std=gnu++17 -I\"/opt/R/4.6.0/lib/R/include\" -DNDEBUG -DHAVE_PROJ_H -I/usr/include/gdal -I/usr/include   -I'/opt/rstudio-connect/mnt/app/packrat/lib/x86_64-pc-linux-gnu/4.6.0/Rcpp/include' -I/usr/local/include    -fpic  -g -O2   -c RcppExports.cpp -o RcppExports.o\ng++ -std=gnu++17 -I\"/opt/R/4.6.0/lib/R/include\" -DNDEBUG -DHAVE_PROJ_H -I/usr/include/gdal -I/usr/include   -I'/opt/rstudio-connect/mnt/app/packrat/lib/x86_64-pc-linux-gnu/4.6.0/Rcpp/include' -I/usr/local/include    -fpic  -g -O2   -c RcppFunctions.cpp -o RcppFunctions.o\ng++ -std=gnu++17 -I\"/opt/R/4.6.0/lib/R/include\" -DNDEBUG -DHAVE_PROJ_H -I/usr/include/gdal -I/usr/include   -I'/opt/rstudio-connect/mnt/app/packrat/lib/x86_64-pc-linux-gnu/4.6.0/Rcpp/include' -I/usr/local/include    -fpic  -g -O2   -c RcppModule.cpp -o RcppModule.o\ng++ -std=gnu++17 -I\"/opt/R/4.6.0/lib/R/include\" -DNDEBUG -DHAVE_PROJ_H -I/usr/include/gdal -I/usr/include   -I'/opt/rstudio-connect/mnt/app/packrat/lib/x86_64-pc-linux-gnu/4.6.0/Rcpp/include' -I/usr/local/include    -fpic  -g -O2   -c arith.cpp -o arith.o\ng++ -std=gnu++17 -I\"/opt/R/4.6.0/lib/R/include\" -DNDEBUG -DHAVE_PROJ_H -I/usr/include/gdal -I/usr/include   -I'/opt/rstudio-connect/mnt/app/packrat/lib/x86_64-pc-linux-gnu/4.6.0/Rcpp/include' -I/usr/local/include    -fpic  -g -O2   -c catchments.cpp -o catchments.o\ng++ -std=gnu++17 -I\"/opt/R/4.6.0/lib/R/include\" -DNDEBUG -DHAVE_PROJ_H -I/usr/include/gdal -I/usr/include   -I'/opt/rstudio-connect/mnt/app/packrat/lib/x86_64-pc-linux-gnu/4.6.0/Rcpp/include' -I/usr/local/include    -fpic  -g -O2   -c costDistance.cpp -o costDistance.o\ng++ -std=gnu++17 -I\"/opt/R/4.6.0/lib/R/include\" -DNDEBUG -DHAVE_PROJ_H -I/usr/include/gdal -I/usr/include   -I'/opt/rstudio-connect/mnt/app/packrat/lib/x86_64-pc-linux-gnu/4.6.0/Rcpp/include' -I/usr/local/include    -fpic  -g -O2   -c crs.cpp -o crs.o\ng++ -std=gnu++17 -I\"/opt/R/4.6.0/lib/R/include\" -DNDEBUG -DHAVE_PROJ_H -I/usr/include/gdal -I/usr/include   -I'/opt/rstudio-connect/mnt/app/packrat/lib/x86_64-pc-linux-gnu/4.6.0/Rcpp/include' -I/usr/local/include    -fpic  -g -O2   -c distRaster.cpp -o distRaster.o\ng++ -std=gnu++17 -I\"/opt/R/4.6.0/lib/R/include\" -DNDEBUG -DHAVE_PROJ_H -I/usr/include/gdal -I/usr/include   -I'/opt/rstudio-connect/mnt/app/packrat/lib/x86_64-pc-linux-gnu/4.6.0/Rcpp/include' -I/usr/local/include    -fpic  -g -O2   -c distValueRaster.cpp -o distValueRaster.o\ng++ -std=gnu++17 -I\"/opt/R/4.6.0/lib/R/include\" -DNDEBUG -DHAVE_PROJ_H -I/usr/include/gdal -I/usr/include   -I'/opt/rstudio-connect/mnt/app/packrat/lib/x86_64-pc-linux-gnu/4.6.0/Rcpp/include' -I/usr/local/include    -fpic  -g -O2   -c distVector.cpp -o distVector.o\ng++ -std=gnu++17 -I\"/opt/R/4.6.0/lib/R/include\" -DNDEBUG -DHAVE_PROJ_H -I/usr/include/gdal -I/usr/include   -I'/opt/rstudio-connect/mnt/app/packrat/lib/x86_64-pc-linux-gnu/4.6.0/Rcpp/include' -I/usr/local/include    -fpic  -g -O2   -c distance.cpp -o distance.o\ng++ -std=gnu++17 -I\"/opt/R/4.6.0/lib/R/include\" -DNDEBUG -DHAVE_PROJ_H -I/usr/include/gdal -I/usr/include   -I'/opt/rstudio-connect/mnt/app/packrat/lib/x86_64-pc-linux-gnu/4.6.0/Rcpp/include' -I/usr/local/include    -fpic  -g -O2   -c extract.cpp -o extract.o\ng++ -std=gnu++17 -I\"/opt/R/4.6.0/lib/R/include\" -DNDEBUG -DHAVE_PROJ_H -I/usr/include/gdal -I/usr/include   -I'/opt/rstudio-connect/mnt/app/packrat/lib/x86_64-pc-linux-gnu/4.6.0/Rcpp/include' -I/usr/local/include    -fpic  -g -O2   -c file_utils.cpp -o file_utils.o\ng++ -std=gnu++17 -I\"/opt/R/4.6.0/lib/R/include\" -DNDEBUG -DHAVE_PROJ_H -I/usr/include/gdal -I/usr/include   -I'/opt/rstudio-connect/mnt/app/packrat/lib/x86_64-pc-linux-gnu/4.6.0/Rcpp/include' -I/usr/local/include    -fpic  -g -O2   -c focal.cpp -o focal.o\ng++ -std=gnu++17 -I\"/opt/R/4.6.0/lib/R/include\" -DNDEBUG -DHAVE_PROJ_H -I/usr/include/gdal -I/usr/include   -I'/opt/rstudio-connect/mnt/app/packrat/lib/x86_64-pc-linux-gnu/4.6.0/Rcpp/include' -I/usr/local/include    -fpic  -g -O2   -c gdal_algs.cpp -o gdal_algs.o\ng++ -std=gnu++17 -I\"/opt/R/4.6.0/lib/R/include\" -DNDEBUG -DHAVE_PROJ_H -I/usr/include/gdal -I/usr/include   -I'/opt/rstudio-connect/mnt/app/packrat/lib/x86_64-pc-linux-gnu/4.6.0/Rcpp/include' -I/usr/local/include    -fpic  -g -O2   -c gdal_multidimensional.cpp -o gdal_multidimensional.o\ngdal_multidimensional.cpp: In member function ‘bool SpatRaster::open_gdal_multidim(void*&, size_t)’:\ngdal_multidimensional.cpp:1090:49: error: no matching function for call to ‘GDALMDArray::AsClassicDataset(__gnu_cxx::__alloc_traits<std::allocator<long unsigned int>, long unsigned int>::value_type&, __gnu_cxx::__alloc_traits<std::allocator<long unsigned int>, long unsigned int>::value_type&, std::shared_ptr<GDALGroup>&)’\n 1090 |         GDALDataset *cds = arr->AsClassicDataset(source[src].m_dims[0], source[src].m_dims[1], root);\n      |                            ~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nIn file included from spatVector.h:24,\n                 from spatRaster.h:20,\n                 from spatRasterMultiple.h:18,\n                 from gdal_multidimensional.cpp:18:\n/usr/include/gdal/gdal_priv.h:2506:26: note: candidate: ‘virtual GDALDataset* GDALMDArray::AsClassicDataset(size_t, size_t) const’\n 2506 |     virtual GDALDataset* AsClassicDataset(size_t iXDim, size_t iYDim) const;\n      |                          ^~~~~~~~~~~~~~~~\n/usr/include/gdal/gdal_priv.h:2506:26: note:   candidate expects 2 arguments, 3 provided\nmake: *** [/opt/R/4.6.0/lib/R/etc/Makeconf:199: gdal_multidimensional.o] Error 1\nERROR: compilation failed for package ‘terra’\n* removing ‘/opt/rstudio-connect/mnt/app/packrat/lib/x86_64-pc-linux-gnu/4.6.0/terra’"
+2026/09/08 17:58:55.780964719 Error: Command failed (1)
+2026/09/08 17:58:55.780981960 
+2026/09/08 17:58:55.781067976 Failed to run system command:
+2026/09/08 17:58:55.781069268 
+2026/09/08 17:58:55.781081805 	'/opt/R/4.6.0/lib/R/bin/R' --vanilla CMD INSTALL --preclean '/opt/rstudio-connect/mnt/tmp/Rtmpf7KEy1/packrat-install-100a386294c96e/terra' --library='/opt/rstudio-connect/mnt/app/packrat/lib/x86_64-pc-linux-gnu/4.6.0' --install-tests --no-docs --no-multiarch --no-demo 
+2026/09/08 17:58:55.781082916 
+2026/09/08 17:58:55.781151348 The command failed with output:
+2026/09/08 17:58:55.781152504 * installing *source* package ‘terra’ ...
+2026/09/08 17:58:55.781443714 ** this is package ‘terra’ version ‘1.9-34’
+2026/09/08 17:58:55.781445860 ** package ‘terra’ successfully unpacked and MD5 sums checked
+2026/09/08 17:58:55.781634932 ** using staged installation
+2026/09/08 17:58:55.781638964 configure: CC: gcc
+2026/09/08 17:58:55.781655618 configure: CXX: g++ -std=gnu++20
+2026/09/08 17:58:55.781656520 checking for gdal-config... /usr/bin/gdal-config
+2026/09/08 17:58:55.781678967 checking gdal-config usability... yes
+2026/09/08 17:58:55.781679834 configure: GDAL: 3.4.1
+2026/09/08 17:58:55.781695680 checking GDAL version >= 2.0.1... yes
+2026/09/08 17:58:55.781696381 checking for gcc... gcc
+2026/09/08 17:58:55.781712531 checking whether the C compiler works... yes
+2026/09/08 17:58:55.781713271 checking for C compiler default output file name... a.out
+2026/09/08 17:58:55.781756246 checking for suffix of executables... 
+2026/09/08 17:58:55.781785509 checking whether we are cross compiling... no
+2026/09/08 17:58:55.781842375 checking for suffix of object files... o
+2026/09/08 17:58:55.781844010 checking whether the compiler supports GNU C... yes
+2026/09/08 17:58:55.781869150 checking whether gcc accepts -g... yes
+2026/09/08 17:58:55.781870099 checking for gcc option to enable C11 features... none needed
+2026/09/08 17:58:55.781920212 checking for stdio.h... yes
+2026/09/08 17:58:55.781924640 checking for stdlib.h... yes
+2026/09/08 17:58:55.782006707 checking for string.h... yes
+2026/09/08 17:58:55.782008293 checking for inttypes.h... yes
+2026/09/08 17:58:55.782035233 checking for stdint.h... yes
+2026/09/08 17:58:55.782036183 checking for strings.h... yes
+2026/09/08 17:58:55.782065322 checking for sys/stat.h... yes
+2026/09/08 17:58:55.782066215 checking for sys/types.h... yes
+2026/09/08 17:58:55.782114788 checking for unistd.h... yes
+2026/09/08 17:58:55.782118760 checking for gdal.h... yes
+2026/09/08 17:58:55.782160172 checking GDAL: linking with --libs only... yes
+2026/09/08 17:58:55.782161694 checking GDAL: /usr/share/gdal/pcs.csv readable... no
+2026/09/08 17:58:55.782185089 checking GDAL: checking whether PROJ is available for linking:... yes
+2026/09/08 17:58:55.782188229 checking GDAL: checking whether PROJ is available for running:... yes
+2026/09/08 17:58:55.782213124 configure: GDAL: 3.4.1
+2026/09/08 17:58:55.782214330 configure: pkg-config proj exists, will use it
+2026/09/08 17:58:55.782243725 configure: using proj.h.
+2026/09/08 17:58:55.782246925 configure: PROJ: 8.2.1
+2026/09/08 17:58:55.782280392 checking PROJ: checking whether PROJ and sqlite3 are available for linking:... yes
+2026/09/08 17:58:55.782293534 checking for geos-config... /usr/bin/geos-config
+2026/09/08 17:58:55.782327345 checking geos-config usability... yes
+2026/09/08 17:58:55.782328248 configure: GEOS: 3.10.2
+2026/09/08 17:58:55.782354451 checking GEOS version >= 3.4.0... yes
+2026/09/08 17:58:55.782355391 checking for geos_c.h... yes
+2026/09/08 17:58:55.782375506 checking geos: linking with -L/usr/lib/x86_64-linux-gnu -lgeos_c... yes
+2026/09/08 17:58:55.782377365 checking Intel TBB exists:... no
+2026/09/08 17:58:55.782401657 configure: WARNING: to support parallel processing install TBB devel or update the PKG_CONFIG_PATH environment variable
+2026/09/08 17:58:55.782403742 configure: Package CPP flags:   -DHAVE_PROJ_H -I/usr/include/gdal -I/usr/include  
+2026/09/08 17:58:55.782446960 configure: Package LIBS:  -lproj   -L/usr/lib -lgdal -L/usr/lib/x86_64-linux-gnu -lgeos_c
+2026/09/08 17:58:55.782447952 configure: creating ./config.status
+2026/09/08 17:58:55.782473782 config.status: creating src/Makevars
+2026/09/08 17:58:55.782474510 ** libs
+2026/09/08 17:58:55.782508163 specified C++17
+2026/09/08 17:58:55.782509222 using C compiler: ‘gcc (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0’
+2026/09/08 17:58:55.782530088 using C++ compiler: ‘g++ (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0’
+2026/09/08 17:58:55.782531009 using C++17
+2026/09/08 17:58:55.782566772 g++ -std=gnu++17 -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG -DHAVE_PROJ_H -I/usr/include/gdal -I/usr/include   -I'/opt/rstudio-connect/mnt/app/packrat/lib/x86_64-pc-linux-gnu/4.6.0/Rcpp/include' -I/usr/local/include    -fpic  -g -O2   -c RcppExports.cpp -o RcppExports.o
+2026/09/08 17:58:55.782568252 g++ -std=gnu++17 -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG -DHAVE_PROJ_H -I/usr/include/gdal -I/usr/include   -I'/opt/rstudio-connect/mnt/app/packrat/lib/x86_64-pc-linux-gnu/4.6.0/Rcpp/include' -I/usr/local/include    -fpic  -g -O2   -c RcppFunctions.cpp -o RcppFunctions.o
+2026/09/08 17:58:55.782648011 g++ -std=gnu++17 -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG -DHAVE_PROJ_H -I/usr/include/gdal -I/usr/include   -I'/opt/rstudio-connect/mnt/app/packrat/lib/x86_64-pc-linux-gnu/4.6.0/Rcpp/include' -I/usr/local/include    -fpic  -g -O2   -c RcppModule.cpp -o RcppModule.o
+2026/09/08 17:58:55.782649179 g++ -std=gnu++17 -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG -DHAVE_PROJ_H -I/usr/include/gdal -I/usr/include   -I'/opt/rstudio-connect/mnt/app/packrat/lib/x86_64-pc-linux-gnu/4.6.0/Rcpp/include' -I/usr/local/include    -fpic  -g -O2   -c arith.cpp -o arith.o
+2026/09/08 17:58:55.782691736 g++ -std=gnu++17 -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG -DHAVE_PROJ_H -I/usr/include/gdal -I/usr/include   -I'/opt/rstudio-connect/mnt/app/packrat/lib/x86_64-pc-linux-gnu/4.6.0/Rcpp/include' -I/usr/local/include    -fpic  -g -O2   -c catchments.cpp -o catchments.o
+2026/09/08 17:58:55.782744908 g++ -std=gnu++17 -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG -DHAVE_PROJ_H -I/usr/include/gdal -I/usr/include   -I'/opt/rstudio-connect/mnt/app/packrat/lib/x86_64-pc-linux-gnu/4.6.0/Rcpp/include' -I/usr/local/include    -fpic  -g -O2   -c costDistance.cpp -o costDistance.o
+2026/09/08 17:58:55.782745996 g++ -std=gnu++17 -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG -DHAVE_PROJ_H -I/usr/include/gdal -I/usr/include   -I'/opt/rstudio-connect/mnt/app/packrat/lib/x86_64-pc-linux-gnu/4.6.0/Rcpp/include' -I/usr/local/include    -fpic  -g -O2   -c crs.cpp -o crs.o
+2026/09/08 17:58:55.782821340 g++ -std=gnu++17 -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG -DHAVE_PROJ_H -I/usr/include/gdal -I/usr/include   -I'/opt/rstudio-connect/mnt/app/packrat/lib/x86_64-pc-linux-gnu/4.6.0/Rcpp/include' -I/usr/local/include    -fpic  -g -O2   -c distRaster.cpp -o distRaster.o
+2026/09/08 17:58:55.782822463 g++ -std=gnu++17 -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG -DHAVE_PROJ_H -I/usr/include/gdal -I/usr/include   -I'/opt/rstudio-connect/mnt/app/packrat/lib/x86_64-pc-linux-gnu/4.6.0/Rcpp/include' -I/usr/local/include    -fpic  -g -O2   -c distValueRaster.cpp -o distValueRaster.o
+2026/09/08 17:58:55.782895609 g++ -std=gnu++17 -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG -DHAVE_PROJ_H -I/usr/include/gdal -I/usr/include   -I'/opt/rstudio-connect/mnt/app/packrat/lib/x86_64-pc-linux-gnu/4.6.0/Rcpp/include' -I/usr/local/include    -fpic  -g -O2   -c distVector.cpp -o distVector.o
+2026/09/08 17:58:55.782896578 g++ -std=gnu++17 -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG -DHAVE_PROJ_H -I/usr/include/gdal -I/usr/include   -I'/opt/rstudio-connect/mnt/app/packrat/lib/x86_64-pc-linux-gnu/4.6.0/Rcpp/include' -I/usr/local/include    -fpic  -g -O2   -c distance.cpp -o distance.o
+2026/09/08 17:58:55.782961512 g++ -std=gnu++17 -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG -DHAVE_PROJ_H -I/usr/include/gdal -I/usr/include   -I'/opt/rstudio-connect/mnt/app/packrat/lib/x86_64-pc-linux-gnu/4.6.0/Rcpp/include' -I/usr/local/include    -fpic  -g -O2   -c extract.cpp -o extract.o
+2026/09/08 17:58:55.782962429 g++ -std=gnu++17 -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG -DHAVE_PROJ_H -I/usr/include/gdal -I/usr/include   -I'/opt/rstudio-connect/mnt/app/packrat/lib/x86_64-pc-linux-gnu/4.6.0/Rcpp/include' -I/usr/local/include    -fpic  -g -O2   -c file_utils.cpp -o file_utils.o
+2026/09/08 17:58:55.783021285 g++ -std=gnu++17 -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG -DHAVE_PROJ_H -I/usr/include/gdal -I/usr/include   -I'/opt/rstudio-connect/mnt/app/packrat/lib/x86_64-pc-linux-gnu/4.6.0/Rcpp/include' -I/usr/local/include    -fpic  -g -O2   -c focal.cpp -o focal.o
+2026/09/08 17:58:55.783022230 g++ -std=gnu++17 -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG -DHAVE_PROJ_H -I/usr/include/gdal -I/usr/include   -I'/opt/rstudio-connect/mnt/app/packrat/lib/x86_64-pc-linux-gnu/4.6.0/Rcpp/include' -I/usr/local/include    -fpic  -g -O2   -c gdal_algs.cpp -o gdal_algs.o
+2026/09/08 17:58:55.783084822 g++ -std=gnu++17 -I"/opt/R/4.6.0/lib/R/include" -DNDEBUG -DHAVE_PROJ_H -I/usr/include/gdal -I/usr/include   -I'/opt/rstudio-connect/mnt/app/packrat/lib/x86_64-pc-linux-gnu/4.6.0/Rcpp/include' -I/usr/local/include    -fpic  -g -O2   -c gdal_multidimensional.cpp -o gdal_multidimensional.o
+2026/09/08 17:58:55.783085852 gdal_multidimensional.cpp: In member function ‘bool SpatRaster::open_gdal_multidim(void*&, size_t)’:
+2026/09/08 17:58:55.783135837 gdal_multidimensional.cpp:1090:49: error: no matching function for call to ‘GDALMDArray::AsClassicDataset(__gnu_cxx::__alloc_traits<std::allocator<long unsigned int>, long unsigned int>::value_type&, __gnu_cxx::__alloc_traits<std::allocator<long unsigned int>, long unsigned int>::value_type&, std::shared_ptr<GDALGroup>&)’
+2026/09/08 17:58:55.783143503  1090 |         GDALDataset *cds = arr->AsClassicDataset(source[src].m_dims[0], source[src].m_dims[1], root);
+2026/09/08 17:58:55.783219117       |                            ~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2026/09/08 17:58:55.783220159 In file included from spatVector.h:24,
+2026/09/08 17:58:55.783242793                  from spatRaster.h:20,
+2026/09/08 17:58:55.783243711                  from spatRasterMultiple.h:18,
+2026/09/08 17:58:55.783263660                  from gdal_multidimensional.cpp:18:
+2026/09/08 17:58:55.783264964 /usr/include/gdal/gdal_priv.h:2506:26: note: candidate: ‘virtual GDALDataset* GDALMDArray::AsClassicDataset(size_t, size_t) const’
+2026/09/08 17:58:55.783296181  2506 |     virtual GDALDataset* AsClassicDataset(size_t iXDim, size_t iYDim) const;
+2026/09/08 17:58:55.783297306       |                          ^~~~~~~~~~~~~~~~
+2026/09/08 17:58:55.783325061 /usr/include/gdal/gdal_priv.h:2506:26: note:   candidate expects 2 arguments, 3 provided
+2026/09/08 17:58:55.783325979 make: *** [/opt/R/4.6.0/lib/R/etc/
+2026/09/08 17:58:55.783350637 
+2026/09/08 17:58:55.783351907 Unable to fully restore the R packages associated with this deployment.
+2026/09/08 17:58:55.783373020 Please review the preceding messages to determine which package
+2026/09/08 17:58:55.783374177 encountered installation difficulty and the cause of the failure.
+2026/09/08 17:58:55.783400411 
